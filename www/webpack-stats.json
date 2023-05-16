@@ -1,0 +1,26 @@
+{
+  "status": "done",
+  "assets": {
+    "8554dbcb26ed63279e76.wasm": {
+      "name": "8554dbcb26ed63279e76.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/8554dbcb26ed63279e76.wasm"
+    },
+    "e9a10ee2f1c0a4cdec5e.wasm": {
+      "name": "e9a10ee2f1c0a4cdec5e.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/e9a10ee2f1c0a4cdec5e.wasm"
+    },
+    "mirror-tell-section.js": {
+      "name": "mirror-tell-section.js",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/mirror-tell-section.js"
+    },
+    "mirror-tell-section.js.LICENSE.txt": {
+      "name": "mirror-tell-section.js.LICENSE.txt",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/mirror-tell-section.js.LICENSE.txt"
+    }
+  },
+  "chunks": {
+    "core": [
+      "mirror-tell-section.js"
+    ]
+  }
+}
