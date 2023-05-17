@@ -92,6 +92,7 @@ impl DataPoint {
     }
 }
 
+pub type DataPointMap = HashMap<Uuid, DataPoint>;
 
 /*
     GraphInitiator

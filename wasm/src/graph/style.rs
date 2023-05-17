@@ -5,6 +5,7 @@ use wasm_bindgen::prelude::wasm_bindgen;
     DashStyle
 */
 #[wasm_bindgen]
+#[derive(Clone, Copy)]
 pub struct DashStyle {
     pub dash: bool,
     pub dash_length: f64,
@@ -38,6 +39,7 @@ impl DashStyle {
     ArrowStyle
 */
 #[wasm_bindgen]
+#[derive(Clone, Copy)]
 pub struct ArrowStyle {
     pub arrow: bool,
     pub arrow_length: f64,

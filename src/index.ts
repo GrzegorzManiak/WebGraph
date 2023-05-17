@@ -52,9 +52,9 @@ function main() {
     // -- Create a new line
     const line = new Line("#000000", 1.0);
     line.set_point(new DataPoint(1, 0));
-    line.set_point(new DataPoint(2, 25));
+    line.set_point(new DataPoint(2, 0));
     line.set_point(new DataPoint(3, -25));
-    line.set_point(new DataPoint(4, 50));
+    line.set_point(new DataPoint(4, 0));
     line.set_point(new DataPoint(5, 0));
 
     // -- Add the line to the graph

@@ -12,6 +12,7 @@ use crate::data_types::Point;
     TODO: Finish this off, right now this is just a placeholder
 */
 #[wasm_bindgen]
+#[derive(Clone)]
 pub struct Label {
     text: web_sys::SvgTextElement,
     point: Point,

@@ -1,5 +1,13 @@
 use wasm_bindgen::prelude::*;
-use crate::{data_types::DataPoint, graph::{style::{DashStyle, ArrowStyle}, graph::Graph}};
+use std::{collections::HashMap, time};
+
+use crate::{
+    data_types::{DataPoint, DataPointMap}, 
+    graph::{
+        style::{DashStyle, ArrowStyle}, 
+        graph::Graph
+    }
+};
 
 use super::label::Label;
 
@@ -11,9 +19,9 @@ use super::label::Label;
     other information.
 */
 #[wasm_bindgen]
+#[derive(Clone)]
 pub struct Line {
-    line: web_sys::SvgPathElement,
-    points: Vec<DataPoint>,
+    points: DataPointMap,
 
     color: String,
     width: f64,
@@ -35,18 +43,10 @@ impl Line {
         arrow_style: Option<ArrowStyle>,
     ) -> Line {
         Line {
-            line: web_sys::window()
-                .unwrap()
-                .document()
-                .unwrap()
-                .create_element_ns(Some("http://www.w3.org/2000/svg"), "path")
-                .unwrap()
-                .dyn_into::<web_sys::SvgPathElement>()
-                .unwrap(),
             color,
             width,
             columns: 0,
-            points: Vec::new(),
+            points: DataPointMap::new(),
             label: lable.unwrap_or(
                 Label::defualt_graph_label(
                     "".to_string(), 
@@ -62,18 +62,10 @@ impl Line {
     #[wasm_bindgen]
     pub fn default() -> Line {
         Line {
-            line: web_sys::window()
-                .unwrap()
-                .document()
-                .unwrap()
-                .create_element_ns(Some("http://www.w3.org/2000/svg"), "path")
-                .unwrap()
-                .dyn_into::<web_sys::SvgPathElement>()
-                .unwrap(),
             color: String::from("black"),
             width: 1.0,
             columns: 0,
-            points: Vec::new(),
+            points: DataPointMap::new(),
             label: Label::defualt_graph_label(
                 "".to_string(), 
                 Option::None
@@ -89,39 +81,74 @@ impl Line {
     pub fn set_point(
         &mut self,
         data: &mut DataPoint,
-    ) {
+    ) -> String {
         // -- Set the point Y, since thats the only thing that
         //    we currently know, X will be calculated later once
         //    we have all the points
         data.point.set_y(data.scale_y);
 
         // -- Append the DataPoint to the points vector
-        self.points.push(data.clone());
+        let id = uuid::Uuid::new_v4();
+        self.points.insert(id, data.clone());
+
+        // -- Return the id of the point as a string
+        id.to_string()
     }
 
 
+    // -- Getters and Setters
+    #[wasm_bindgen]
+    pub fn get_color(&self) -> String { self.color.clone() }
 
     #[wasm_bindgen]
+    pub fn set_color(&mut self, color: String) { self.color = color; }
+
+
+    #[wasm_bindgen]
+    pub fn get_width(&self) -> f64 { self.width }
+
+    #[wasm_bindgen]
+    pub fn set_width(&mut self, width: f64) { self.width = width; }
+
+
+    #[wasm_bindgen]
+    pub fn get_label(&self) -> Label { self.label.clone() }
+
+    #[wasm_bindgen]
+    pub fn set_label(&mut self, label: Label) { self.label = label; }
+}
+
+
+
+impl Line {
+    pub fn sort(&self, reverse: bool) -> Vec<DataPoint> {
+        // -- Get all the points, disregard the keys
+        let mut points = self.points.iter().map(|(_, v)| v.clone()).collect::<Vec<_>>();
+
+        // -- Sort the points based on the x value
+        points.sort_by(|a, b| a.scale_x.partial_cmp(&b.scale_x).unwrap());
+
+        // -- Reverse the points if needed
+        if reverse { points.reverse(); }
+        points
+    }
+
+    
+
     pub fn total_points(&self) -> u32 {
         self.points.len() as u32
     }
 
-
-    #[wasm_bindgen]
     pub fn set_columns(&mut self, columns: u32) {
         self.columns = columns;
     }
 
-
-
-    #[wasm_bindgen]
     pub fn render_line(&self, graph: &Graph){
-        // -- Sort the points based on the x value
-        let points = &mut self.points.clone();
-        points.sort_by(|a, b| a.point.x.partial_cmp(&b.point.x).unwrap());
+        // -- Get the points
+        let points = self.sort(false);
 
         // -- Create the Path2D object
-        let mut path = web_sys::Path2d::new().unwrap();
+        let path = web_sys::Path2d::new().unwrap();
         let mut i = 0;
 
         // -- Check if theres any columns
@@ -135,12 +162,14 @@ impl Line {
         let mut largest_y = 0.0;
         let mut smallest_y = 0.0;
         for point in points.to_owned() {
-            if point.point.y > largest_y { largest_y = point.point.y; }
-            if point.point.y < smallest_y { smallest_y = point.point.y; }
+            let point = point.point;
+            if point.y > largest_y { largest_y = point.y; }
+            if point.y < smallest_y { smallest_y = point.y; }
         }
 
         // -- Loop through all the points and set the X and Y
-        for point in points {
+        for mut point in points {
+
             // -- Set the point Y 
             point.point.set_y(point.scale_y);
             point.point.set_x(column_width * i as f64);
@@ -149,7 +178,8 @@ impl Line {
             let normalized_y = (point.point.y - smallest_y) / (largest_y - smallest_y);
             let normalized_y = 1.0 - normalized_y;
             point.point.set_y(height * normalized_y);
-            
+
+
             // -- Draw the line
             path.line_to(
                 point.point.x.into(),
@@ -159,6 +189,7 @@ impl Line {
             // -- Move the path to the next point
             i += 1;
         }
+
 
         let ctx = graph.get_ctx();
         ctx.set_stroke_style(&JsValue::from_str(&self.color));
