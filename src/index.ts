@@ -1,16 +1,11 @@
 
 import init, {
-    Graph,
     DataPoint,
     GraphInitiator,
     LineGraph,
     Point,
     Line,
-    ArrowStyle,
-    DashStyle,
-    InitInput,
-    InitOutput,
-    Label,
+    XYAxis,
 } from './wasm/mandelbrot';
 init().then(() => main());
 
@@ -27,7 +22,13 @@ function main() {
             new Point(0, 0),
             new Point(0, 0),
             new Point(0, 0),
-        )
+        ),
+
+        // -- X Axis
+        XYAxis.default(),
+
+        // -- Y Axis
+        XYAxis.default(),
     );
             
     graph.draw();
@@ -53,7 +54,7 @@ function main() {
     line.set_point(new DataPoint(1, 0));
     line.set_point(new DataPoint(2, 25));
     line.set_point(new DataPoint(3, -25));
-    line.set_point(new DataPoint(4, 25));
+    line.set_point(new DataPoint(4, 50));
     line.set_point(new DataPoint(5, 0));
 
     // -- Add the line to the graph

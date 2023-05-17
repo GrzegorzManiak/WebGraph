@@ -1,7 +1,56 @@
-use crate::data_types::{Point, Graph, GraphInitiator, DataPoint, Line, Label};
+use crate::data_types::{Point, Graph, GraphInitiator, DataPoint, Line, Label, DashStyle};
 use std::collections::HashMap;
 use wasm_bindgen::prelude::*;
 use uuid::uuid;
+
+
+/*
+    XYAxis
+
+    This struct defines the style of the X/Y axis lines
+    on the graph
+*/
+#[wasm_bindgen]
+pub struct XYAxis {
+    label: Label,
+    color: String,
+    width: u32,
+    dash_style: DashStyle,
+}
+
+#[wasm_bindgen]
+impl XYAxis {
+    #[wasm_bindgen(constructor)]
+    pub fn new(
+        color: String,
+        width: u32,
+        label: Option<String>,
+        dash_style: Option<DashStyle>,
+    ) -> XYAxis {
+        XYAxis {
+            color,
+            width,
+            dash_style: match dash_style {
+                Some(style) => style,
+                None => DashStyle::default(),
+            },
+            label: match label {
+                Some(label) => Label::new(label, Point { x: 0.0, y: 0.0 }),
+                None => Label::new(String::from(""), Point { x: 0.0, y: 0.0 })
+            },
+        }
+    }
+
+    #[wasm_bindgen]
+    pub fn default() -> XYAxis {
+        XYAxis {
+            color: String::from("black"),
+            width: 1,
+            dash_style: DashStyle::default(),
+            label: Label::new(String::from(""), Point { x: 0.0, y: 0.0 }),
+        }
+    }
+}
 
 
 
@@ -9,7 +58,10 @@ use uuid::uuid;
 pub struct LineGraph {
     lines: Vec<Line>,
     graph: Graph,
-    labels: Vec<Label>
+    labels: Vec<Label>,
+
+    x_axis: XYAxis,
+    y_axis: XYAxis,
 }
 
 #[wasm_bindgen]
@@ -18,6 +70,9 @@ impl LineGraph {
     pub fn new(
         parent: web_sys::HtmlElement,
         originator: GraphInitiator,
+
+        x_axis: Option<XYAxis>,
+        y_axis: Option<XYAxis>,
     ) -> LineGraph {
         LineGraph {
             lines: Vec::new(),
@@ -26,6 +81,15 @@ impl LineGraph {
                 parent,
                 originator,
             ),
+
+            x_axis: match x_axis {
+                Some(axis) => axis,
+                None => XYAxis::default(),
+            },
+            y_axis: match y_axis {
+                Some(axis) => axis,
+                None => XYAxis::default(),
+            },
         }
     }
 
@@ -92,6 +156,9 @@ impl LineGraph {
             line.set_columns(columns);
             self.graph.draw_line(line);
         }
+
+        // -- Draw the axis lines
+
     }
 
 
