@@ -38,9 +38,18 @@ impl LineGraph {
 
     #[wasm_bindgen]
     pub fn draw(&self) {
+        // -- Recalculate the graph
+        self.graph.recalculate();
+        
         // -- Draw the lines
         for line in &self.lines {
             self.graph.draw_line(line.clone());
         }
+    }
+
+
+    #[wasm_bindgen]
+    pub fn get_graph(&self) -> Graph {
+        self.graph.clone()
     }
 }

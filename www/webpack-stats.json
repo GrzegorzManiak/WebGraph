@@ -1,6 +1,14 @@
 {
   "status": "done",
   "assets": {
+    "0a28936e3c859537b7f9.wasm": {
+      "name": "0a28936e3c859537b7f9.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/0a28936e3c859537b7f9.wasm"
+    },
+    "1f5d1c5b703fa1a8a0b7.wasm": {
+      "name": "1f5d1c5b703fa1a8a0b7.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/1f5d1c5b703fa1a8a0b7.wasm"
+    },
     "320b33a32f05769972f1.wasm": {
       "name": "320b33a32f05769972f1.wasm",
       "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/320b33a32f05769972f1.wasm"
@@ -9,9 +17,17 @@
       "name": "585667c03fda8c76d48c.wasm",
       "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/585667c03fda8c76d48c.wasm"
     },
+    "6e2aae46f4f97f3d40ca.wasm": {
+      "name": "6e2aae46f4f97f3d40ca.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/6e2aae46f4f97f3d40ca.wasm"
+    },
     "72001c560c0871b9378f.wasm": {
       "name": "72001c560c0871b9378f.wasm",
       "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/72001c560c0871b9378f.wasm"
+    },
+    "7b50a301ea323232d929.wasm": {
+      "name": "7b50a301ea323232d929.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/7b50a301ea323232d929.wasm"
     },
     "7f2658ff32a17638c0a5.wasm": {
       "name": "7f2658ff32a17638c0a5.wasm",
@@ -24,6 +40,14 @@
     "93d25469587fe60a50c8.wasm": {
       "name": "93d25469587fe60a50c8.wasm",
       "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/93d25469587fe60a50c8.wasm"
+    },
+    "d4edb6fb65c622d66db5.wasm": {
+      "name": "d4edb6fb65c622d66db5.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/d4edb6fb65c622d66db5.wasm"
+    },
+    "d53cfed85638669e8259.wasm": {
+      "name": "d53cfed85638669e8259.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/d53cfed85638669e8259.wasm"
     },
     "e9a10ee2f1c0a4cdec5e.wasm": {
       "name": "e9a10ee2f1c0a4cdec5e.wasm",

@@ -17,6 +17,7 @@ features = [
   'Document',
   'CanvasRenderingContext2d',
   'SvgPathElement',
+  'SvgTextElement',
   'HtmlCanvasElement',
   'Element',
   'HtmlElement',
