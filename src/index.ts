@@ -5,7 +5,12 @@ import init, {
     GraphInitiator,
     LineGraph,
     Point,
-    Line
+    Line,
+    ArrowStyle,
+    DashStyle,
+    InitInput,
+    InitOutput,
+    Label,
 } from './wasm/mandelbrot';
 init().then(() => main());
 
@@ -45,11 +50,11 @@ function main() {
 
     // -- Create a new line
     const line = new Line("#000000", 1.0);
-    line.set_point(new DataPoint(1, 345));
-    line.set_point(new DataPoint(2, 33));
-    line.set_point(new DataPoint(3, 352));
-    line.set_point(new DataPoint(4, 421));
-    line.set_point(new DataPoint(5, 52));
+    line.set_point(new DataPoint(1, 0));
+    line.set_point(new DataPoint(2, 25));
+    line.set_point(new DataPoint(3, -25));
+    line.set_point(new DataPoint(4, 25));
+    line.set_point(new DataPoint(5, 0));
 
     // -- Add the line to the graph
     graph.add_line(line);

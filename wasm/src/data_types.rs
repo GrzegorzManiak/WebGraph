@@ -11,25 +11,25 @@ use std::{collections::HashMap, time};
 #[wasm_bindgen]
 #[derive(Clone, Copy)]
 pub struct Point {
-    pub x: f32,
-    pub y: f32,
+    pub x: f64,
+    pub y: f64,
 }
 
 #[wasm_bindgen]
 impl Point {
     #[wasm_bindgen(constructor)]
-    pub fn new(x: f32, y: f32) -> Point {
+    pub fn new(x: f64, y: f64) -> Point {
         Point { x, y }
     }
 
 
     #[wasm_bindgen]
-    pub fn set_x(&mut self, x: f32) {
+    pub fn set_x(&mut self, x: f64) {
         self.x = x;
     }
 
     #[wasm_bindgen]
-    pub fn set_y(&mut self, y: f32) {
+    pub fn set_y(&mut self, y: f64) {
         self.y = y;
     }
 
@@ -37,8 +37,8 @@ impl Point {
     #[wasm_bindgen]
     pub fn normalize(
         &self,
-        width: f32,
-        height: f32,
+        width: f64,
+        height: f64,
     ) -> Point {
         let x = self.x / width;
         let y = self.y / height;
@@ -64,7 +64,7 @@ impl Point {
 pub struct DataPoint {
     pub point: Point,
     pub scale_x: u32,
-    pub scale_y: f32,
+    pub scale_y: f64,
     id: String,
 }
 
@@ -73,7 +73,7 @@ impl DataPoint {
     #[wasm_bindgen(constructor)]
     pub fn new(
         scale_x: u32,
-        scale_y: f32,
+        scale_y: f64,
     ) -> DataPoint {
         // -- Generate a new id
         let id = uuid::Uuid::new_v4().to_string();
@@ -216,13 +216,13 @@ impl Graph {
     }
 
     #[wasm_bindgen]
-    pub fn get_width(&self) -> f32 {
-        self.canvas.width() as f32
+    pub fn get_width(&self) -> f64 {
+        self.canvas.width() as f64
     }
 
     #[wasm_bindgen]
-    pub fn get_height(&self) -> f32 {
-        self.canvas.height() as f32
+    pub fn get_height(&self) -> f64 {
+        self.canvas.height() as f64
     }
 
     // -- This is used to re-calculate the canvas size
@@ -434,17 +434,34 @@ impl Line {
 
         let width = graph.get_width(); 
         let height = graph.get_height();
-        let column_width = width / self.columns as f32;
+        let column_width = width / (self.columns - 1) as f64;
 
+        // -- Get the largest Y and smallest Y
+        let mut largest_y = 0.0;
+        let mut smallest_y = 0.0;
+        for point in points.to_owned() {
+            if point.point.y > largest_y { largest_y = point.point.y; }
+            if point.point.y < smallest_y { smallest_y = point.point.y; }
+        }
+
+        // -- Loop through all the points and set the X and Y
         for point in points {
             // -- Set the point Y 
             point.point.set_y(point.scale_y);
-            point.point.set_x(column_width * i as f32);
+            point.point.set_x(column_width * i as f64);
+
+            // -- Normalize the Y value
+            let normalized_y = (point.point.y - smallest_y) / (largest_y - smallest_y);
+            let normalized_y = 1.0 - normalized_y;
+            point.point.set_y(height * normalized_y);
             
+            // -- Draw the line
             path.line_to(
                 point.point.x.into(),
                 point.point.y.into()
             );
+
+            // -- Move the path to the next point
             i += 1;
         }
 
