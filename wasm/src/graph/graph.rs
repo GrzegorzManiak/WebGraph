@@ -1,6 +1,6 @@
 use wasm_bindgen::prelude::*;
 use web_sys::CanvasRenderingContext2d;
-use crate::{data_types::GraphInitiator, graph::line::Line};
+use crate::{data_types::Padding, graph::line::Line};
 
 /*
     Graph
@@ -16,7 +16,7 @@ pub struct Graph {
     parent: web_sys::HtmlElement,
     canvas: web_sys::HtmlCanvasElement,
     ctx: CanvasRenderingContext2d,
-    originator: GraphInitiator,
+    pub padding: Padding,
 }
 
 #[wasm_bindgen]
@@ -24,7 +24,6 @@ impl Graph {
     #[wasm_bindgen(constructor)]
     pub fn new(
         parent: web_sys::HtmlElement,
-        originator: GraphInitiator,
     ) -> Graph {
 
         // -- Create the Canvas Element
@@ -57,7 +56,7 @@ impl Graph {
             parent,
             canvas,
             ctx,
-            originator,
+            padding: Padding::default(),
         }
     }
 
@@ -75,12 +74,6 @@ impl Graph {
     pub fn get_ctx(&self) -> CanvasRenderingContext2d {
         self.ctx.clone()
     }
-
-    #[wasm_bindgen]
-    pub fn get_originator(&self) -> GraphInitiator {
-        self.originator.clone()
-    }
-
 
     #[wasm_bindgen]
     pub fn draw_line(
@@ -114,5 +107,29 @@ impl Graph {
         // -- Set the canvas width and height
         self.canvas.set_width(self.parent.client_width() as u32);
         self.canvas.set_height(self.parent.client_height() as u32);
+    }
+}
+
+
+impl Graph {
+    pub fn get_size(&self) -> (f64, f64) {
+        (
+            self.canvas.width() as f64,
+            self.canvas.height() as f64,
+        )
+    }
+
+    pub fn get_offset_size(&self) -> (f64, f64) {
+        (
+            self.canvas.width() as f64 - self.padding.left - self.padding.right,
+            self.canvas.height() as f64 - self.padding.top - self.padding.bottom,
+        )
+    }
+
+    pub fn get_offset(&self) -> (f64, f64) {
+        (
+            self.padding.left,
+            self.padding.top,
+        )
     }
 }

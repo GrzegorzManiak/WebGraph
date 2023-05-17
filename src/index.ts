@@ -1,7 +1,7 @@
 
 import init, {
     DataPoint,
-    GraphInitiator,
+    Padding,
     LineGraph,
     Point,
     Line,
@@ -21,17 +21,9 @@ async function main() {
     console.info('Canvas element found', canvas);
 
     // -- Create a new graph
-    const graph = new LineGraph(canvas, 
-        new GraphInitiator(
-            new Point(0, 0),
-            new Point(0, 0),
-            new Point(0, 0),
-        ),
-
-        // -- X Axis
+    const graph = new LineGraph(
+        canvas, 
         XYAxis.default(),
-
-        // -- Y Axis
         XYAxis.default(),
     );
             
@@ -46,27 +38,29 @@ async function main() {
 
 
     // -- Add the lables to the graph
-    graph.set_label("Val1", 1);
-    graph.set_label("Val2", 2);
-    graph.set_label("Val3", 3);
-    graph.set_label("Val4", 4);
-    graph.set_label("Val5", 5);
+    const pad = new Padding(10, 0, 0, 10);
+
+    graph.set_label("Val1", 1, pad);
+    graph.set_label("Val2", 2, pad);
+    graph.set_label("Val3", 3, pad);
+    graph.set_label("Val4", 4, pad);
+    graph.set_label("Val5", 5, pad);
 
 
     // -- Create a new line
-    let line = new Line("#000000", 1.0);
-    line.set_point(new DataPoint(1, 0));
+    let line = new Line("#ff6384", 3.5);
+    line.set_point(new DataPoint(1, 5));
     line.set_point(new DataPoint(2, 10));
-    line.set_point(new DataPoint(3, -25));
-    line.set_point(new DataPoint(4, 0));
-    line.set_point(new DataPoint(5, 0));
+    line.set_point(new DataPoint(3, 5));
+    line.set_point(new DataPoint(4, 10));
+    line.set_point(new DataPoint(5, 5));
 
     graph.add_line(line);
     graph.draw();
 
 
     let line2 = new Line(
-        "#FF0000", 2.0,
+        "#36a2eb", 3.5,
         Label.defualt_graph_label(""),
         new DashStyle(true, 5, 5),
     );

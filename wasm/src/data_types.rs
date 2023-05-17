@@ -95,36 +95,87 @@ impl DataPoint {
 pub type DataPointMap = HashMap<Uuid, DataPoint>;
 
 /*
-    GraphInitiator
+    Padding
 
-    This just contains some basic parameters for the graph
-    such as the origin, size, and scale. It is used to
-    initialize a Graph.
-
-    Origin: The origin point of the graph
-    Size: The size of the graph
-    Scale: The scale of the graph
+    A simple struct that defines the padding of a graph
+    and other things such as labels
 */
 #[wasm_bindgen]
 #[derive(Clone, Copy)]
-pub struct GraphInitiator {
-    pub origin: Point,
-    pub size: Point,
-    pub scale: Point,
+pub struct Padding {
+    pub bottom: f64,
+    pub left: f64,
+    pub right: f64,
+    pub top: f64,
 }
 
 #[wasm_bindgen]
-impl GraphInitiator {
+impl Padding {
     #[wasm_bindgen(constructor)]
     pub fn new(
-        origin: Point,
-        size: Point,
-        scale: Point,
-    ) -> GraphInitiator {
-        GraphInitiator {
-            origin,
-            size,
-            scale,
+        bottom: f64,
+        left: f64,
+        right: f64,
+        top: f64,
+    ) -> Padding {
+        Padding {
+            bottom,
+            left,
+            right,
+            top,
+        }
+    }
+
+    #[wasm_bindgen]
+    pub fn default() -> Padding {
+        Padding {
+            bottom: 0.0,
+            left: 0.0,
+            right: 0.0,
+            top: 0.0,
+        }
+    }
+}
+
+
+impl Padding {
+    pub fn set_padding(
+        &mut self,
+        bottom: f64,
+        left: f64,
+        right: f64,
+        top: f64,
+    ) {
+        // -- Set the padding
+        self.bottom = bottom;
+        self.left = left;
+        self.right = right;
+        self.top = top;
+    }
+
+
+
+    pub fn set_padding_if_larger(
+        &mut self, 
+        p_bottom: Option<f64>, 
+        p_left: Option<f64>, 
+        p_right: Option<f64>, 
+        p_top: Option<f64>
+    ) {
+        if let Some(pb) = p_bottom {
+            if pb > self.bottom { self.bottom = pb; }
+        }
+    
+        if let Some(pl) = p_left {
+            if pl > self.left { self.left = pl; }
+        }
+    
+        if let Some(pr) = p_right {
+            if pr > self.right { self.right = pr; }
+        }
+    
+        if let Some(pt) = p_top {
+            if pt > self.top { self.top = pt; }
         }
     }
 }

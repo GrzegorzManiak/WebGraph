@@ -181,8 +181,8 @@ impl Line {
         // -- Check if theres any columns
         if self.columns < 1 { return; }
 
-        let width = graph.get_width(); 
-        let height = graph.get_height();
+        let (width, height) = graph.get_offset_size();
+        let (offset_x, offset_y) = graph.get_offset();
         let column_width = width / (self.columns - 1) as f64;
 
         // -- Loop through all the points and set the X and Y
@@ -200,8 +200,8 @@ impl Line {
 
             // -- Draw the line
             path.line_to(
-                point.point.x.into(),
-                point.point.y.into()
+                point.point.x + offset_x,
+                point.point.y + offset_y,
             );
 
             // -- Move the path to the next point
@@ -210,6 +210,7 @@ impl Line {
 
 
         let ctx = graph.get_ctx();
+        ctx.save();
         ctx.set_stroke_style(&JsValue::from_str(&self.color));
         ctx.set_line_width(self.width);
 
@@ -219,5 +220,6 @@ impl Line {
         
         // -- Stroke the path
         ctx.stroke_with_path(&path);
+        ctx.restore();
     }
 }
