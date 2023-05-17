@@ -6,10 +6,14 @@ import init, {
     Point,
     Line,
     XYAxis,
+    Label,
+    DashStyle,
 } from './wasm/mandelbrot';
 init().then(() => main());
 
-function main() {
+const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+async function main() {
     console.info('WASM Bindings loaded');
 
     // -- Get the elm with the id 'main'
@@ -50,16 +54,31 @@ function main() {
 
 
     // -- Create a new line
-    const line = new Line("#000000", 1.0);
+    let line = new Line("#000000", 1.0);
     line.set_point(new DataPoint(1, 0));
-    line.set_point(new DataPoint(2, 0));
+    line.set_point(new DataPoint(2, 10));
     line.set_point(new DataPoint(3, -25));
     line.set_point(new DataPoint(4, 0));
     line.set_point(new DataPoint(5, 0));
 
-    // -- Add the line to the graph
     graph.add_line(line);
-
-    // -- Draw the graph
     graph.draw();
+
+
+    let line2 = new Line(
+        "#FF0000", 2.0,
+        Label.defualt_graph_label(""),
+        new DashStyle(true, 5, 5),
+    );
+    line2.set_point(new DataPoint(1, 0));
+    line2.set_point(new DataPoint(2, 15));
+    line2.set_point(new DataPoint(3, -15));
+    line2.set_point(new DataPoint(4, 3));
+    line2.set_point(new DataPoint(5, 16));
+
+    graph.add_line(line2);
+    graph.draw();
+
+
+    line2.set_point(new DataPoint(1, 0));
 }

@@ -6,7 +6,8 @@ use crate::{
     graph::{
         style::{DashStyle, ArrowStyle}, 
         graph::Graph
-    }
+    }, 
+    log
 };
 
 use super::label::Label;
@@ -87,7 +88,17 @@ impl Line {
         //    we have all the points
         data.point.set_y(data.scale_y);
 
-        // -- Append the DataPoint to the points vector
+        // -- Check if another DataPoint exists on the same X scale
+        //    if so, then we need to add the Y value to the existing
+        //    DataPoint
+        for (_, point) in self.points.iter_mut() {
+            if point.scale_x != data.scale_x { continue; }
+            point.point.set_y(data.scale_y);
+            return point.get_id();
+        }
+
+        //  If the value is unique, then we need to add
+        //  it to the DataPoint to the points vector
         let id = uuid::Uuid::new_v4();
         self.points.insert(id, data.clone());
 
@@ -133,7 +144,18 @@ impl Line {
         points
     }
 
-    
+    pub fn get_largest_and_smallest_y(&self) -> (f64, f64) {
+        let mut largest_y = 0.0;
+        let mut smallest_y = 0.0;
+
+        // -- Loop through all the points and find the largest and smallest Y
+        for (_, point) in self.points.iter() {
+            if point.scale_y > largest_y { largest_y = point.scale_y; }
+            if point.scale_y < smallest_y { smallest_y = point.scale_y; }
+        }
+
+        (largest_y, smallest_y)
+    }
 
     pub fn total_points(&self) -> u32 {
         self.points.len() as u32
@@ -143,7 +165,12 @@ impl Line {
         self.columns = columns;
     }
 
-    pub fn render_line(&self, graph: &Graph){
+    pub fn render_line(
+        &self, 
+        graph: &Graph,
+        largest_y: f64,
+        smallest_y: f64,
+    ){
         // -- Get the points
         let points = self.sort(false);
 
@@ -157,15 +184,6 @@ impl Line {
         let width = graph.get_width(); 
         let height = graph.get_height();
         let column_width = width / (self.columns - 1) as f64;
-
-        // -- Get the largest Y and smallest Y
-        let mut largest_y = 0.0;
-        let mut smallest_y = 0.0;
-        for point in points.to_owned() {
-            let point = point.point;
-            if point.y > largest_y { largest_y = point.y; }
-            if point.y < smallest_y { smallest_y = point.y; }
-        }
 
         // -- Loop through all the points and set the X and Y
         for mut point in points {
@@ -194,6 +212,12 @@ impl Line {
         let ctx = graph.get_ctx();
         ctx.set_stroke_style(&JsValue::from_str(&self.color));
         ctx.set_line_width(self.width);
+
+        // -- Line styles
+        self.dash_style.apply(&ctx);
+        self.arrow_style.apply(&ctx);
+        
+        // -- Stroke the path
         ctx.stroke_with_path(&path);
     }
 }

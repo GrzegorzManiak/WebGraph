@@ -5,9 +5,17 @@
       "name": "03c68a6a03fe0e76bb24.wasm",
       "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/03c68a6a03fe0e76bb24.wasm"
     },
+    "156bc3ab635b8ef44e5c.wasm": {
+      "name": "156bc3ab635b8ef44e5c.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/156bc3ab635b8ef44e5c.wasm"
+    },
     "1f6f91500b37b96f62a5.wasm": {
       "name": "1f6f91500b37b96f62a5.wasm",
       "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/1f6f91500b37b96f62a5.wasm"
+    },
+    "37cfc556bca7f2fc72e1.wasm": {
+      "name": "37cfc556bca7f2fc72e1.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/37cfc556bca7f2fc72e1.wasm"
     },
     "711dda7b66ac53878385.wasm": {
       "name": "711dda7b66ac53878385.wasm",
@@ -17,9 +25,29 @@
       "name": "78ef5610b7d218e43c40.wasm",
       "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/78ef5610b7d218e43c40.wasm"
     },
+    "9df8eac66c96d373cc0e.wasm": {
+      "name": "9df8eac66c96d373cc0e.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/9df8eac66c96d373cc0e.wasm"
+    },
     "ababca7d7e8241ebb7d8.wasm": {
       "name": "ababca7d7e8241ebb7d8.wasm",
       "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/ababca7d7e8241ebb7d8.wasm"
+    },
+    "ae9df93af989a44a25ec.wasm": {
+      "name": "ae9df93af989a44a25ec.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/ae9df93af989a44a25ec.wasm"
+    },
+    "c8b75efae763acef7c01.wasm": {
+      "name": "c8b75efae763acef7c01.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/c8b75efae763acef7c01.wasm"
+    },
+    "f08b8199ec9bbb661cdb.wasm": {
+      "name": "f08b8199ec9bbb661cdb.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/f08b8199ec9bbb661cdb.wasm"
+    },
+    "ff605a34ea34e0332951.wasm": {
+      "name": "ff605a34ea34e0332951.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/ff605a34ea34e0332951.wasm"
     },
     "mirror-tell-section.js": {
       "name": "mirror-tell-section.js",

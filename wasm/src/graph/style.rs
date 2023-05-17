@@ -1,4 +1,5 @@
 use wasm_bindgen::prelude::wasm_bindgen;
+use web_sys::CanvasRenderingContext2d;
 
 
 /*
@@ -23,13 +24,17 @@ impl DashStyle {
     pub fn default() -> DashStyle {
         DashStyle { dash: false, dash_length: 0.0, dash_spacing: 0.0, }
     }
+}
 
-    #[wasm_bindgen]
-    pub fn apply(&self, line: web_sys::SvgPathElement) -> web_sys::SvgPathElement {
-        if self.dash {
-            line.set_attribute("stroke-dasharray", &format!("{}, {}", self.dash_length, self.dash_spacing)).unwrap();
-        }
-        line
+impl DashStyle {
+    pub fn apply(&self, ctx: &CanvasRenderingContext2d) {
+        if !self.dash { return; }
+
+        let dash = js_sys::Array::new();
+        dash.push(&self.dash_length.into());
+        dash.push(&self.dash_spacing.into());
+
+        ctx.set_line_dash(&dash).unwrap();
     }
 }
 
@@ -58,12 +63,19 @@ impl ArrowStyle {
     pub fn default() -> ArrowStyle {
         ArrowStyle { arrow: false, arrow_length: 0.0, arrow_width: 0.0, arrow_offset: 0.0, }
     }
+}
 
-    #[wasm_bindgen]
-    pub fn apply(&self, line: web_sys::SvgPathElement) -> web_sys::SvgPathElement {
-        if self.arrow {
-            line.set_attribute("marker-end", "url(#arrow)").unwrap();
-        }
-        line
+impl ArrowStyle {
+    pub fn apply(&self, ctx: &CanvasRenderingContext2d) {
+        if !self.arrow { return; }
+
+        let arrow_length = self.arrow_length;
+        let arrow_width = self.arrow_width;
+        let arrow_offset = self.arrow_offset;
+
+        ctx.line_to(arrow_offset, arrow_width);
+        ctx.line_to(arrow_offset, -arrow_width);
+        ctx.line_to(arrow_offset + arrow_length, 0.0);
+        ctx.line_to(arrow_offset, arrow_width);
     }
 }

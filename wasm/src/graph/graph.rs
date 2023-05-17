@@ -85,9 +85,15 @@ impl Graph {
     #[wasm_bindgen]
     pub fn draw_line(
         &self,
-        line: &Line
+        line: &Line,
+        largest_y: f64,
+        smallest_y: f64,
     ) {
-        line.render_line(&self);
+        line.render_line(
+            &self,
+            largest_y,
+            smallest_y
+        );
     }
 
     #[wasm_bindgen]

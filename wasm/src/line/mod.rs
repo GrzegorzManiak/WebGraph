@@ -61,9 +61,9 @@ impl XYAxis {
 #[wasm_bindgen]
 pub struct LineGraph {
     id: Uuid,
-    lines: Vec<Line>,
+    lines: HashMap<Uuid, Line>,
     graph: Graph,
-    labels: Vec<Label>,
+    labels: HashMap<Uuid, Label>,
 
     x_axis: XYAxis,
     y_axis: XYAxis,
@@ -81,8 +81,8 @@ impl LineGraph {
     ) -> LineGraph {
         LineGraph {
             id: uuid::Uuid::new_v4(),
-            lines: Vec::new(),
-            labels: Vec::new(),
+            lines: HashMap::new(),
+            labels: HashMap::new(),
             graph: Graph::new(
                 parent,
                 originator,
@@ -105,26 +105,33 @@ impl LineGraph {
         &mut self, 
         label: String, 
         x_pos: u32,
-    ) { 
+    ) -> String { 
         // -- Create the label
         let label = Label::new(label, Point { x: 0.0, y: 0.0 });
+        let id = uuid::Uuid::new_v4();
 
-        // -- Bit un-orthodox, but the column that the lable
-        //    will represent is dependent on the x_pos, eg
-        //    if x_pos is 0, then the label will be the first
-        //    column, if x_pos is 5, then the label will be
-        //    the 6th column if 0,1,2,3,4,5 are the columns
-        //    in the graph, it will also replace any existing
-        //    label at that position
-        if x_pos < self.labels.len() as u32 {
-            self.labels[x_pos as usize] = label;
-        } else {
-            self.labels.push(label);
-        }
+        self.labels.insert(id, label);
 
         // -- Recalculate the graph
         self.draw();
+        id.to_string()
     }
+
+
+
+    #[wasm_bindgen]
+    pub fn add_line(
+        &mut self, 
+        line: Line
+    ) -> String {
+        // -- Add the line to the graph
+        let id = uuid::Uuid::new_v4();
+        self.lines.insert(id, line);
+        
+        // -- Return the ID of the line
+        id.to_string()
+    }
+
 
 
     #[wasm_bindgen]
@@ -136,7 +143,7 @@ impl LineGraph {
         // -- If there are no labels, then return the number of
         //    points in the largest line
         for line in &self.lines {
-            let points = line.total_points();
+            let points = line.1.total_points();
             if points > columns { columns = points }
         }
 
@@ -145,11 +152,6 @@ impl LineGraph {
     }
 
 
-    #[wasm_bindgen]
-    pub fn add_line(&mut self, line: Line) {
-        self.lines.push(line);
-    }
-
 
     #[wasm_bindgen]
     pub fn draw(&mut self) {
@@ -157,10 +159,21 @@ impl LineGraph {
         self.graph.recalculate();
         let columns = self.get_columns();
 
+        // -- Find the largest Y and the Smallest Y
+        //    between all the lines
+        let mut largest_y = 0.0;
+        let mut smallest_y = 0.0;
+
+        for line in &self.lines {
+            let (largest, smallest) = line.1.get_largest_and_smallest_y();
+            if largest > largest_y { largest_y = largest }
+            if smallest < smallest_y { smallest_y = smallest }
+        }
+
         // -- Draw the lines
         for line in &mut self.lines {
-            line.set_columns(columns);
-            self.graph.draw_line(&line);
+            line.1.set_columns(columns);
+            self.graph.draw_line(&line.1, largest_y, smallest_y);
         }
 
         // -- Draw the axis lines
