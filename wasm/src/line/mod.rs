@@ -1,7 +1,11 @@
-use crate::data_types::{Point, Graph, GraphInitiator, DataPoint, Line, Label, DashStyle};
 use std::collections::HashMap;
 use wasm_bindgen::prelude::*;
-use uuid::uuid;
+use uuid::{uuid, Uuid};
+
+use crate::{
+    graph::{DashStyle, Label, Graph, Line}, 
+    data_types::{Point, GraphInitiator}
+};
 
 
 /*
@@ -56,6 +60,7 @@ impl XYAxis {
 
 #[wasm_bindgen]
 pub struct LineGraph {
+    id: Uuid,
     lines: Vec<Line>,
     graph: Graph,
     labels: Vec<Label>,
@@ -75,6 +80,7 @@ impl LineGraph {
         y_axis: Option<XYAxis>,
     ) -> LineGraph {
         LineGraph {
+            id: uuid::Uuid::new_v4(),
             lines: Vec::new(),
             labels: Vec::new(),
             graph: Graph::new(
@@ -154,7 +160,7 @@ impl LineGraph {
         // -- Draw the lines
         for line in &mut self.lines {
             line.set_columns(columns);
-            self.graph.draw_line(line);
+            self.graph.draw_line(&line);
         }
 
         // -- Draw the axis lines

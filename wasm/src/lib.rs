@@ -3,6 +3,7 @@ use web_sys::CanvasRenderingContext2d;
 
 // -- Local imports
 mod data_types;
+mod graph;
 mod line;
 
 #[wasm_bindgen]

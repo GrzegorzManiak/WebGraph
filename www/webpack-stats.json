@@ -1,137 +1,9 @@
 {
   "status": "done",
   "assets": {
-    "01c46214dd1d649d3e93.wasm": {
-      "name": "01c46214dd1d649d3e93.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/01c46214dd1d649d3e93.wasm"
-    },
     "03c68a6a03fe0e76bb24.wasm": {
       "name": "03c68a6a03fe0e76bb24.wasm",
       "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/03c68a6a03fe0e76bb24.wasm"
-    },
-    "086606defc0380feb153.wasm": {
-      "name": "086606defc0380feb153.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/086606defc0380feb153.wasm"
-    },
-    "0a28936e3c859537b7f9.wasm": {
-      "name": "0a28936e3c859537b7f9.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/0a28936e3c859537b7f9.wasm"
-    },
-    "1655c5c34096e0c69759.wasm": {
-      "name": "1655c5c34096e0c69759.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/1655c5c34096e0c69759.wasm"
-    },
-    "1936d526282e591e38fc.wasm": {
-      "name": "1936d526282e591e38fc.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/1936d526282e591e38fc.wasm"
-    },
-    "1f5d1c5b703fa1a8a0b7.wasm": {
-      "name": "1f5d1c5b703fa1a8a0b7.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/1f5d1c5b703fa1a8a0b7.wasm"
-    },
-    "320b33a32f05769972f1.wasm": {
-      "name": "320b33a32f05769972f1.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/320b33a32f05769972f1.wasm"
-    },
-    "3eaeccd3986e239ed1f0.wasm": {
-      "name": "3eaeccd3986e239ed1f0.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/3eaeccd3986e239ed1f0.wasm"
-    },
-    "4f4f6b29ace5258f1a9a.wasm": {
-      "name": "4f4f6b29ace5258f1a9a.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/4f4f6b29ace5258f1a9a.wasm"
-    },
-    "585667c03fda8c76d48c.wasm": {
-      "name": "585667c03fda8c76d48c.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/585667c03fda8c76d48c.wasm"
-    },
-    "5f5e700e2af81fdc19c7.wasm": {
-      "name": "5f5e700e2af81fdc19c7.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/5f5e700e2af81fdc19c7.wasm"
-    },
-    "6b3b5a3d5a97ad9d0fbc.wasm": {
-      "name": "6b3b5a3d5a97ad9d0fbc.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/6b3b5a3d5a97ad9d0fbc.wasm"
-    },
-    "6e2aae46f4f97f3d40ca.wasm": {
-      "name": "6e2aae46f4f97f3d40ca.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/6e2aae46f4f97f3d40ca.wasm"
-    },
-    "72001c560c0871b9378f.wasm": {
-      "name": "72001c560c0871b9378f.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/72001c560c0871b9378f.wasm"
-    },
-    "7716d2a3132c212ec6af.wasm": {
-      "name": "7716d2a3132c212ec6af.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/7716d2a3132c212ec6af.wasm"
-    },
-    "7b50a301ea323232d929.wasm": {
-      "name": "7b50a301ea323232d929.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/7b50a301ea323232d929.wasm"
-    },
-    "7f2658ff32a17638c0a5.wasm": {
-      "name": "7f2658ff32a17638c0a5.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/7f2658ff32a17638c0a5.wasm"
-    },
-    "8554dbcb26ed63279e76.wasm": {
-      "name": "8554dbcb26ed63279e76.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/8554dbcb26ed63279e76.wasm"
-    },
-    "914fb7d8b6e5ad005486.wasm": {
-      "name": "914fb7d8b6e5ad005486.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/914fb7d8b6e5ad005486.wasm"
-    },
-    "93d25469587fe60a50c8.wasm": {
-      "name": "93d25469587fe60a50c8.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/93d25469587fe60a50c8.wasm"
-    },
-    "a6e58ee66467697590ee.wasm": {
-      "name": "a6e58ee66467697590ee.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/a6e58ee66467697590ee.wasm"
-    },
-    "b81bb498e0d2c0a4441b.wasm": {
-      "name": "b81bb498e0d2c0a4441b.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/b81bb498e0d2c0a4441b.wasm"
-    },
-    "d4edb6fb65c622d66db5.wasm": {
-      "name": "d4edb6fb65c622d66db5.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/d4edb6fb65c622d66db5.wasm"
-    },
-    "d53cfed85638669e8259.wasm": {
-      "name": "d53cfed85638669e8259.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/d53cfed85638669e8259.wasm"
-    },
-    "e6a00336a933b5e5cf37.wasm": {
-      "name": "e6a00336a933b5e5cf37.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/e6a00336a933b5e5cf37.wasm"
-    },
-    "e9a10ee2f1c0a4cdec5e.wasm": {
-      "name": "e9a10ee2f1c0a4cdec5e.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/e9a10ee2f1c0a4cdec5e.wasm"
-    },
-    "ebf4357a56611d6a461d.wasm": {
-      "name": "ebf4357a56611d6a461d.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/ebf4357a56611d6a461d.wasm"
-    },
-    "ed29fa644dac68bc452d.wasm": {
-      "name": "ed29fa644dac68bc452d.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/ed29fa644dac68bc452d.wasm"
-    },
-    "efdbf4fefb98f1a85557.wasm": {
-      "name": "efdbf4fefb98f1a85557.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/efdbf4fefb98f1a85557.wasm"
-    },
-    "f7257f70709d7d609bc8.wasm": {
-      "name": "f7257f70709d7d609bc8.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/f7257f70709d7d609bc8.wasm"
-    },
-    "f849001dcd1ac79a8a89.wasm": {
-      "name": "f849001dcd1ac79a8a89.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/f849001dcd1ac79a8a89.wasm"
-    },
-    "fd86fb9ab30b008af34f.wasm": {
-      "name": "fd86fb9ab30b008af34f.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/fd86fb9ab30b008af34f.wasm"
     },
     "mirror-tell-section.js": {
       "name": "mirror-tell-section.js",
@@ -146,7 +18,5 @@
     "core": [
       "mirror-tell-section.js"
     ]
-  },
-  "error": "ModuleBuildError",
-  "message": "Module build failed (from ./node_modules/happypack/loader.js):\nSyntaxError: /home/grzegorzm/github/RustGraph/src/index.ts: Unexpected token, expected \",\" (32:2)\n\n  30 |  1.0,\n  31 |  \n> 32 |  );\n     |   ^\n  33 |  \n  34 |  graph.draw();\n  35 |  console.info('Graph created', graph);\n    at instantiate (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:653:32)\n    at constructor (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:947:12)\n    at TypeScriptParserMixin.raise (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:3271:19)\n    at TypeScriptParserMixin.unexpected (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:3301:16)\n    at TypeScriptParserMixin.expect (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:3643:28)\n    at TypeScriptParserMixin.parseExprList (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:11973:14)\n    at TypeScriptParserMixin.parseNew (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:11565:25)\n    at TypeScriptParserMixin.parseNewOrNewTarget (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:11560:17)\n    at TypeScriptParserMixin.parseExprAtom (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:11169:21)\n    at TypeScriptParserMixin.parseExprSubscripts (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:10873:23)\n    at TypeScriptParserMixin.parseUpdate (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:10856:21)\n    at TypeScriptParserMixin.parseMaybeUnary (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:10832:23)\n    at TypeScriptParserMixin.parseMaybeUnary (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:9755:18)\n    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:10670:61)\n    at TypeScriptParserMixin.parseExprOps (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:10675:23)\n    at TypeScriptParserMixin.parseMaybeConditional (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:10652:23)\n    at TypeScriptParserMixin.parseMaybeAssign (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:10613:21)\n    at TypeScriptParserMixin.parseMaybeAssign (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:9702:20)\n    at /home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:10583:39\n    at TypeScriptParserMixin.allowInAnd (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12253:16)\n    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:10583:17)\n    at TypeScriptParserMixin.parseVar (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13194:91)\n    at TypeScriptParserMixin.parseVarStatement (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13033:10)\n    at TypeScriptParserMixin.parseVarStatement (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:9365:31)\n    at TypeScriptParserMixin.parseStatementContent (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12630:23)\n    at TypeScriptParserMixin.parseStatementContent (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:9399:18)\n    at TypeScriptParserMixin.parseStatementLike (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12550:17)\n    at TypeScriptParserMixin.parseStatementListItem (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12530:17)\n    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13122:61)\n    at TypeScriptParserMixin.parseBlockBody (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13115:10)\n    at TypeScriptParserMixin.parseBlock (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13103:10)\n    at TypeScriptParserMixin.parseFunctionBody (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:11925:24)\n    at TypeScriptParserMixin.parseFunctionBodyAndFinish (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:11911:10)\n    at TypeScriptParserMixin.parseFunctionBodyAndFinish (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:9142:18)\n    at /home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13258:12\n    at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12235:14)\n    at TypeScriptParserMixin.parseFunction (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13257:10)\n    at TypeScriptParserMixin.parseFunctionStatement (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12917:17)\n    at TypeScriptParserMixin.parseStatementContent (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12576:21)\n    at TypeScriptParserMixin.parseStatementContent (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:9399:18)\n    at TypeScriptParserMixin.parseStatementLike (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12550:17)\n    at TypeScriptParserMixin.parseModuleItem (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12527:17)\n    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13122:36)\n    at TypeScriptParserMixin.parseBlockBody (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13115:10)\n    at TypeScriptParserMixin.parseProgram (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12438:10)\n    at TypeScriptParserMixin.parseTopLevel (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12428:25)\n    at TypeScriptParserMixin.parse (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:14251:10)\n    at TypeScriptParserMixin.parse (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:10041:18)\n    at parse (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:14292:38)\n    at parser (/home/grzegorzm/github/RustGraph/node_modules/@babel/core/lib/parser/index.js:41:34)"
+  }
 }
