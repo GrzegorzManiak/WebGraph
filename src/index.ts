@@ -4,7 +4,8 @@ import init, {
     DataPoint,
     GraphInitiator,
     LineGraph,
-    Point
+    Point,
+    Line
 } from './wasm/mandelbrot';
 init().then(() => main());
 
@@ -24,6 +25,18 @@ function main() {
         )
     );
 
-    const point = new DataPoint(new Point(0, 0), 10);
-    graph.add_point(point);
+
+    // -- Create a new line
+    const line = new Line("#000000", 1.0);
+    line.set_point(new DataPoint(10, 1));
+    line.set_point(new DataPoint(20, 2));
+    line.set_point(new DataPoint(30, 3));
+    line.set_point(new DataPoint(40, 4));
+    line.set_point(new DataPoint(50, 5));
+
+    // -- Add the line to the graph
+    graph.add_line(line);
+
+    // -- Draw the graph
+    graph.draw();
 }

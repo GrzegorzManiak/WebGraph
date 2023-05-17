@@ -29,6 +29,10 @@ fn run() -> Result<(), JsValue> {
     // -- Log that we loaded
     log("Loaded in from Rust!");
 
+    // -- Maybe some code in the future to auto detect 
+    //    like a <graph> tag or something and create a 
+    //    graph from that
+
     Ok(())
 }
 

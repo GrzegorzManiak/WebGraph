@@ -1,6 +1,6 @@
 use wasm_bindgen::prelude::*;
 use web_sys::CanvasRenderingContext2d;
-use std::collections::HashMap;
+use std::{collections::HashMap, time};
 
 /*
     Point 
@@ -41,6 +41,7 @@ impl Point {
 pub struct DataPoint {
     pub point: Point,
     pub value: f64,
+    pub time: f64,
     id: String,
 }
 
@@ -48,15 +49,16 @@ pub struct DataPoint {
 impl DataPoint {
     #[wasm_bindgen(constructor)]
     pub fn new(
-        point: Point,
         value: f64,
+        time: f64,
     ) -> DataPoint {
         // -- Generate a new id
         let id = uuid::Uuid::new_v4().to_string();
 
         DataPoint {
-            point,
+            point: Point::new(0.0, 0.0), 
             value,
+            time,
             id,
         }
     }
@@ -138,6 +140,9 @@ impl Graph {
             .dyn_into::<web_sys::HtmlCanvasElement>()
             .unwrap();
 
+        // -- Set the canvas width and height
+        canvas.set_attribute("style", "width: 100%; height: 100%;").unwrap();
+
         // -- Append the canvas to the parent
         parent.append_child(&canvas).unwrap();
 
@@ -182,30 +187,15 @@ impl Graph {
     #[wasm_bindgen]
     pub fn draw_line(
         &self,
-        svg_string: String,
-        color: String,
-        width: f64,
+        line: &Line
     ) {
-        // -- Get the SVG Path
-        let path = web_sys::window()
-            .unwrap()
-            .document()
-            .unwrap()
-            .create_element_ns(Some("http://www.w3.org/2000/svg"), "path")
-            .unwrap()
-            .dyn_into::<web_sys::SvgPathElement>()
-            .unwrap();
+        // -- Append the SVG to the canvas
+        self.canvas.append_child(&line.get_line()).unwrap();
+    }
 
-        // -- Set the SVG Path
-        path.set_attribute("d", &svg_string).unwrap();
-
-        // -- Set the SVG Path Style
-        path.set_attribute("stroke", &color).unwrap();
-        path.set_attribute("stroke-width", &width.to_string()).unwrap();
-        path.set_attribute("fill", "none").unwrap();
-
-        // -- Append the SVG Path to the parent
-        self.parent.append_child(&path).unwrap();
+    #[wasm_bindgen]
+    pub fn get_width(&self) -> f64 {
+        self.canvas.width() as f64
     }
 }
 
@@ -344,11 +334,15 @@ impl Line {
 
 
     #[wasm_bindgen]
-    pub fn calculater_style(
+    pub fn calculate_style(
         &self,
     ) {
         self.dash_style.apply(self.line.clone());
         self.arrow_style.apply(self.line.clone());
+
+        // -- Apply the color and width
+        self.line.set_attribute("stroke", &self.color).unwrap();
+        self.line.set_attribute("stroke-width", &self.width.to_string()).unwrap();
     }
 
 
@@ -368,7 +362,7 @@ impl Line {
 
     #[wasm_bindgen]
     pub fn get_line(&self) -> web_sys::SvgPathElement {
-        self.calculater_style();
+        self.calculate_style();
         self.line.clone()
     }
 }

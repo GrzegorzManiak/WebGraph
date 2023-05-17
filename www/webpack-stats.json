@@ -1,13 +1,37 @@
 {
   "status": "done",
   "assets": {
+    "320b33a32f05769972f1.wasm": {
+      "name": "320b33a32f05769972f1.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/320b33a32f05769972f1.wasm"
+    },
+    "585667c03fda8c76d48c.wasm": {
+      "name": "585667c03fda8c76d48c.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/585667c03fda8c76d48c.wasm"
+    },
+    "72001c560c0871b9378f.wasm": {
+      "name": "72001c560c0871b9378f.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/72001c560c0871b9378f.wasm"
+    },
+    "7f2658ff32a17638c0a5.wasm": {
+      "name": "7f2658ff32a17638c0a5.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/7f2658ff32a17638c0a5.wasm"
+    },
     "8554dbcb26ed63279e76.wasm": {
       "name": "8554dbcb26ed63279e76.wasm",
       "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/8554dbcb26ed63279e76.wasm"
     },
+    "93d25469587fe60a50c8.wasm": {
+      "name": "93d25469587fe60a50c8.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/93d25469587fe60a50c8.wasm"
+    },
     "e9a10ee2f1c0a4cdec5e.wasm": {
       "name": "e9a10ee2f1c0a4cdec5e.wasm",
       "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/e9a10ee2f1c0a4cdec5e.wasm"
+    },
+    "ed29fa644dac68bc452d.wasm": {
+      "name": "ed29fa644dac68bc452d.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/ed29fa644dac68bc452d.wasm"
     },
     "efdbf4fefb98f1a85557.wasm": {
       "name": "efdbf4fefb98f1a85557.wasm",
@@ -34,5 +58,7 @@
     "core": [
       "mirror-tell-section.js"
     ]
-  }
+  },
+  "error": "ModuleBuildError",
+  "message": "Module build failed (from ./node_modules/happypack/loader.js):\nSyntaxError: /home/grzegorzm/github/RustGraph/src/index.ts: Missing semicolon. (30:37)\n\n  28 |\n  29 |  const line = new Line(\"#000000\", 1.0);\n> 30 |  line.set_point(new DataPoint(10, 1)))\n     |                                      ^\n  31 |\n  32 |  graph.add_point(new DataPoint(10, 1));\n  33 |  graph.add_point(new DataPoint(10, 2));\n    at instantiate (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:653:32)\n    at constructor (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:947:12)\n    at TypeScriptParserMixin.raise (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:3271:19)\n    at TypeScriptParserMixin.semicolon (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:3638:10)\n    at TypeScriptParserMixin.parseExpressionStatement (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13091:10)\n    at TypeScriptParserMixin.parseExpressionStatement (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:9500:26)\n    at TypeScriptParserMixin.parseStatementContent (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12688:19)\n    at TypeScriptParserMixin.parseStatementContent (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:9399:18)\n    at TypeScriptParserMixin.parseStatementLike (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12550:17)\n    at TypeScriptParserMixin.parseStatementListItem (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12530:17)\n    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13122:61)\n    at TypeScriptParserMixin.parseBlockBody (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13115:10)\n    at TypeScriptParserMixin.parseBlock (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13103:10)\n    at TypeScriptParserMixin.parseFunctionBody (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:11925:24)\n    at TypeScriptParserMixin.parseFunctionBodyAndFinish (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:11911:10)\n    at TypeScriptParserMixin.parseFunctionBodyAndFinish (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:9142:18)\n    at /home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13258:12\n    at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12235:14)\n    at TypeScriptParserMixin.parseFunction (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13257:10)\n    at TypeScriptParserMixin.parseFunctionStatement (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12917:17)\n    at TypeScriptParserMixin.parseStatementContent (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12576:21)\n    at TypeScriptParserMixin.parseStatementContent (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:9399:18)\n    at TypeScriptParserMixin.parseStatementLike (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12550:17)\n    at TypeScriptParserMixin.parseModuleItem (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12527:17)\n    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13122:36)\n    at TypeScriptParserMixin.parseBlockBody (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13115:10)\n    at TypeScriptParserMixin.parseProgram (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12438:10)\n    at TypeScriptParserMixin.parseTopLevel (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12428:25)\n    at TypeScriptParserMixin.parse (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:14251:10)\n    at TypeScriptParserMixin.parse (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:10041:18)\n    at parse (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:14292:38)\n    at parser (/home/grzegorzm/github/RustGraph/node_modules/@babel/core/lib/parser/index.js:41:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/home/grzegorzm/github/RustGraph/node_modules/@babel/core/lib/transformation/normalize-file.js:66:38)\n    at normalizeFile.next (<anonymous>)\n    at run (/home/grzegorzm/github/RustGraph/node_modules/@babel/core/lib/transformation/index.js:21:50)\n    at run.next (<anonymous>)\n    at transform (/home/grzegorzm/github/RustGraph/node_modules/@babel/core/lib/transform.js:22:41)\n    at transform.next (<anonymous>)\n    at step (/home/grzegorzm/github/RustGraph/node_modules/gensync/index.js:261:32)\n    at /home/grzegorzm/github/RustGraph/node_modules/gensync/index.js:273:13\n    at async.call.result.err.err (/home/grzegorzm/github/RustGraph/node_modules/gensync/index.js:223:11)"
 }

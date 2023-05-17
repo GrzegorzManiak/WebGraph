@@ -1,4 +1,4 @@
-use crate::data_types::{Point, Graph, GraphInitiator, DataPoint};
+use crate::data_types::{Point, Graph, GraphInitiator, DataPoint, Line};
 use std::collections::HashMap;
 use wasm_bindgen::prelude::*;
 use uuid::uuid;
@@ -7,7 +7,7 @@ use uuid::uuid;
 
 #[wasm_bindgen]
 pub struct LineGraph {
-    points: Vec<DataPoint>,
+    lines: Vec<Line>,
     graph: Graph,
 
 }
@@ -20,7 +20,7 @@ impl LineGraph {
         originator: GraphInitiator,
     ) -> LineGraph {
         LineGraph {
-            points: Vec::new(),
+            lines: Vec::new(),
             graph: Graph::new(
                 parent,
                 originator,
@@ -28,11 +28,19 @@ impl LineGraph {
         }
     }
 
+
+
     #[wasm_bindgen]
-    pub fn add_point(
-        &mut self,
-        point: DataPoint,
-    ) {
-        self.points.push(point);
+    pub fn add_line(&mut self, line: Line) {
+        self.lines.push(line);
+    }
+
+
+    #[wasm_bindgen]
+    pub fn draw(&self) {
+        // -- Draw the lines
+        for line in &self.lines {
+            self.graph.draw_line(line.clone());
+        }
     }
 }
