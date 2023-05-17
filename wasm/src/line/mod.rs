@@ -1,124 +1,48 @@
 use std::collections::HashMap;
 use wasm_bindgen::prelude::*;
-use uuid::{uuid, Uuid};
+use uuid::Uuid;
 
 use crate::{
     graph::{DashStyle, Label, Graph, Line}, 
-    data_types::{Point, Padding, DataPoint}, log
+    data_types::{Point, Padding}, log
 };
-pub enum AxisType { X, Y, }
 
-/*
-    XYAxis
+mod scaling;
+use scaling::autoscale_graph;
 
-    This struct defines the style of the X/Y axis lines
-    on the graph
-*/
+mod axis;
+use axis::{
+    XYAxis,
+    AxisType
+};
+
 #[wasm_bindgen]
-pub struct XYAxis {
-    label: Label,
+pub struct Grid {
     color: String,
     width: f64,
-    extend_top: f64,
-    extend_bottom: f64,
-    dash_style: DashStyle,
 }
 
 #[wasm_bindgen]
-impl XYAxis {
+impl Grid {
     #[wasm_bindgen(constructor)]
     pub fn new(
         color: String,
         width: f64,
-        extend_top: f64,
-        extend_bottom: f64,
-        label: Option<String>,
-        dash_style: Option<DashStyle>,
-    ) -> XYAxis {
-        XYAxis {
+    ) -> Grid {
+        Grid {
             color,
             width,
-            extend_top,
-            extend_bottom,
-            dash_style: match dash_style {
-                Some(style) => style,
-                None => DashStyle::default(),
-            },
-            label: match label {
-                Some(label) => Label::new(
-                    label, 
-                    Point { x: 0.0, y: 0.0 },
-                    Padding::default()
-                ),
-                None => Label::new(
-                    String::from(""), 
-                    Point { x: 0.0, y: 0.0 },
-                    Padding::default()
-                )
-            },
         }
     }
 
     #[wasm_bindgen]
-    pub fn default() -> XYAxis {
-        XYAxis {
-            color: String::from("black"),
-            extend_top: 10.0,
-            extend_bottom: 10.0,
+    pub fn default() -> Grid {
+        Grid {
+            color: "#949494".to_string(),
             width: 1.0,
-            dash_style: DashStyle::default(),
-            label: Label::defualt_graph_label("".to_string(), None)
         }
     }
 }
-
-impl XYAxis {
-    pub fn draw_line(
-        &self, 
-        graph: &Graph,
-        axis_type: AxisType,
-    ) {
-        // -- Get the ctx
-        let ctx = graph.get_ctx();
-        ctx.save();
-
-        // -- Set the style
-        ctx.set_stroke_style(&JsValue::from_str(&self.color));
-        ctx.set_line_width(self.width);
-
-        // -- Calculate the start and end points
-        let (offset_x, offset_y) = graph.get_offset();
-        let (offset_width, offset_height) = graph.get_offset_size();
-        
-        let ex_top = self.extend_top;
-        let ex_bottom = self.extend_bottom;
-
-
-        let (start_x, start_y, end_x, end_y) = match axis_type {
-            AxisType::X => (
-                offset_x - ex_bottom, 
-                offset_height + offset_y, 
-
-                offset_x + offset_width + ex_top, 
-                offset_height + offset_y
-            ),
-            AxisType::Y => (
-                offset_x, 
-                offset_y + offset_height + ex_top, 
-
-                offset_x, 
-                offset_y + ex_bottom
-            ),
-        };
-
-        // -- Draw the line
-        ctx.begin_path();
-        ctx.move_to(start_x, start_y);
-        ctx.line_to(end_x, end_y);
-        ctx.stroke();
-    }
-}
-
 
 
 #[wasm_bindgen]
@@ -126,6 +50,7 @@ pub struct LineGraph {
     id: Uuid,
     lines: HashMap<Uuid, Line>,
     graph: Graph,
+    grid: Grid,
     labels: HashMap<u32, Label>,
 
     x_axis: XYAxis,
@@ -137,7 +62,7 @@ impl LineGraph {
     #[wasm_bindgen(constructor)]
     pub fn new(
         parent: web_sys::HtmlElement,
-
+        grid: Option<Grid>,
         x_axis: Option<XYAxis>,
         y_axis: Option<XYAxis>,
     ) -> LineGraph {
@@ -151,9 +76,15 @@ impl LineGraph {
                 Some(axis) => axis,
                 None => XYAxis::default(),
             },
+
             y_axis: match y_axis {
                 Some(axis) => axis,
                 None => XYAxis::default(),
+            },
+
+            grid: match grid {
+                Some(grid) => grid,
+                None => Grid::default(),
             },
         }
     }
@@ -173,7 +104,8 @@ impl LineGraph {
         };
 
         // -- Create the label
-        let label = Label::new(label, Point { x: 0.0, y: 0.0 }, padding);
+        let mut label = Label::defualt_graph_label(label, None);
+        label.padding = padding;
         self.labels.insert(x_pos, label);
 
         // -- Recalculate the graph
@@ -211,7 +143,8 @@ impl LineGraph {
         }
 
         // -- Return the number of columns
-        columns
+        if columns > 0 { return columns }
+        2
     }
 
 
@@ -220,7 +153,6 @@ impl LineGraph {
     pub fn draw(&mut self) {
         // -- Get the number of columns
         let columns = self.get_columns();
-        let graph = &self.graph.clone();
         self.graph.padding = Padding::default();
 
         // -- Recalculate the graph
@@ -229,7 +161,7 @@ impl LineGraph {
         // -- Calculate the Offsets for the
         //    Labels, Header, etc
         let bottom_offset = self.calculate_label_offset();
-        self.graph.padding.top += self.y_axis.extend_top;
+        self.graph.padding.top += self.y_axis.extend_top + 25.0;
         self.graph.padding.bottom += self.y_axis.extend_bottom;
 
         self.graph.padding.left += self.x_axis.extend_top;
@@ -237,13 +169,21 @@ impl LineGraph {
         
         // -- Render the labels
         self.render_labels(columns, bottom_offset);
+        let graph = &self.graph.clone();
 
         // -- Draw the lines
-        self.draw_lines(columns);
+        let (
+            max_data,
+            min_data
+        ) = self.get_min_max_y();
 
         // -- Draw the axis lines
-        self.x_axis.draw_line(&graph, AxisType::X);
-        self.y_axis.draw_line(&graph, AxisType::Y);
+        self.x_axis.draw_line(&graph, AxisType::X, &self.grid, columns - 1);
+        self.y_axis.draw_line(&graph, AxisType::Y, &self.grid, 10);
+
+        
+        // -- Draw the lines
+        self.draw_lines(columns, max_data, min_data);
     }
 
 
@@ -256,19 +196,12 @@ impl LineGraph {
 
 
 impl LineGraph {
-    pub fn draw_lines(&mut self, columns: u32) {
-
-        // -- Find the largest Y and the Smallest Y
-        //    between all the lines
-        let mut largest_y = 0.0;
-        let mut smallest_y = 0.0;
-
-        for line in &self.lines {
-            let (largest, smallest) = line.1.get_largest_and_smallest_y();
-            if largest > largest_y { largest_y = largest }
-            if smallest < smallest_y { smallest_y = smallest }
-        }
-
+    pub fn draw_lines(
+        &mut self, 
+        columns: u32,
+        largest_y: f64,
+        smallest_y: f64,
+    ) -> (f64, f64) {
 
         // -- Reverse the lines, as the first line should be drawn 
         //    on top, etc
@@ -282,8 +215,24 @@ impl LineGraph {
             line.set_columns(columns);
             self.graph.draw_line(&line, largest_y, smallest_y);
         }
+
+        // -- Return the largest and smallest Y values
+        (largest_y, smallest_y)
     }
 
+
+    pub fn get_min_max_y(&self) -> (f64, f64) {
+        let mut largest_y = 0.0;
+        let mut smallest_y = 0.0;
+
+        for line in &self.lines {
+            let (largest, smallest) = line.1.get_largest_and_smallest_y();
+            if largest > largest_y { largest_y = largest }
+            if smallest < smallest_y { smallest_y = smallest }
+        }
+
+        (largest_y, smallest_y)
+    }
 
 
     fn sort_labels(&self, reverse: bool) -> Vec<Label> {
@@ -308,7 +257,7 @@ impl LineGraph {
             if height > label_max_height { label_max_height = height }
 
             // -- Check for the higest label bottom padding
-            let bottom_padding = label.1.get_padding().bottom;
+            let bottom_padding = label.1.padding.bottom;
             if bottom_padding > label_pad_bottom { label_pad_bottom = bottom_padding }
         }
 
@@ -349,11 +298,7 @@ impl LineGraph {
 
             // -- Pad the labels
             labels.extend((0..off_by)
-                .map(|_| Label::new(
-                    String::from(""), 
-                    Point { x: 0.0, y: 0.0 },
-                    Padding::default())
-                ));
+                .map(|_| Label::defualt_graph_label("".to_string(), None)));
         }
 
         // -- Render the labels

@@ -17,7 +17,10 @@ use crate::data_types::{Point, Padding};
 pub struct Label {
     text: String,
     point: Point,
-    padding: Padding
+    pub padding: Padding,
+    font: String,
+    color: String,
+    font_size: f64,
 }
 
 #[wasm_bindgen]
@@ -27,11 +30,17 @@ impl Label {
         text: String,
         point: Point,
         padding: Padding,
+        font: String,
+        color: String,
+        font_size: f64,
     ) -> Label {
         Label {
             text,
             point,
             padding,
+            font,
+            color,
+            font_size,
         }
     }
 
@@ -46,6 +55,9 @@ impl Label {
             text,
             point: point.unwrap_or(Point::new(0.0, 0.0)),
             padding: Padding::default(),
+            font: "Arial".to_string(),
+            color: "#2b2b2b".to_string(),
+            font_size: 15.0,
         }
     }
 
@@ -60,9 +72,6 @@ impl Label {
 
 
 impl Label {
-    pub fn get_padding(&self) -> Padding {
-        self.padding
-    }
     
     pub fn render(&self, ctx: &CanvasRenderingContext2d) {
         ctx.save();
@@ -72,8 +81,8 @@ impl Label {
     }
 
     pub fn set_styles(&self, ctx: &CanvasRenderingContext2d) {
-        ctx.set_fill_style(&JsValue::from_str("black"));
-        ctx.set_font("20px Arial");
+        ctx.set_font(&format!("{}px {}", self.font_size, self.font));
+        ctx.set_fill_style(&JsValue::from_str(&self.color));
     }
 
     pub fn set_position(&mut self, point: Point) {

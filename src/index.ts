@@ -8,6 +8,7 @@ import init, {
     XYAxis,
     Label,
     DashStyle,
+    Grid,
 } from './wasm/mandelbrot';
 init().then(() => main());
 
@@ -23,6 +24,7 @@ async function main() {
     // -- Create a new graph
     const graph = new LineGraph(
         canvas, 
+        Grid.default(),
         XYAxis.default(),
         XYAxis.default(),
     );
@@ -72,7 +74,4 @@ async function main() {
 
     graph.add_line(line2);
     graph.draw();
-
-
-    line2.set_point(new DataPoint(1, 0));
 }
