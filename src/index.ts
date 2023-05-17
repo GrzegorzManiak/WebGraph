@@ -32,16 +32,24 @@ function main() {
     const raw_graph = graph.get_graph();
     console.info('Raw graph', raw_graph);
     console.log('width', raw_graph.get_width());
-    console.log('height', raw_graph.get_height());
+    console.log('height', raw_graph.get_height());  
+
+
+    // -- Add the lables to the graph
+    graph.set_label("Val1", 1);
+    graph.set_label("Val2", 2);
+    graph.set_label("Val3", 3);
+    graph.set_label("Val4", 4);
+    graph.set_label("Val5", 5);
 
 
     // -- Create a new line
     const line = new Line("#000000", 1.0);
-    line.add_point(new DataPoint(10, 1));
-    line.add_point(new DataPoint(20, 2));
-    line.add_point(new DataPoint(30, 3));
-    line.add_point(new DataPoint(40, 4));
-    line.add_point(new DataPoint(50, 5));
+    line.set_point(new DataPoint(1, 345));
+    line.set_point(new DataPoint(2, 33));
+    line.set_point(new DataPoint(3, 352));
+    line.set_point(new DataPoint(4, 421));
+    line.set_point(new DataPoint(5, 52));
 
     // -- Add the line to the graph
     graph.add_line(line);

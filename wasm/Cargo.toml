@@ -23,6 +23,7 @@ features = [
   'HtmlElement',
   'Node',
   'Window',
+  'Path2d',
 ]
 
 [dependencies.uuid]

@@ -1,4 +1,4 @@
-use wasm_bindgen::prelude::*;
+use wasm_bindgen::{prelude::*, JsObject};
 use web_sys::{CanvasRenderingContext2d, SvgPathElement};
 use std::{collections::HashMap, time};
 
@@ -11,25 +11,25 @@ use std::{collections::HashMap, time};
 #[wasm_bindgen]
 #[derive(Clone, Copy)]
 pub struct Point {
-    pub x: f64,
-    pub y: f64,
+    pub x: f32,
+    pub y: f32,
 }
 
 #[wasm_bindgen]
 impl Point {
     #[wasm_bindgen(constructor)]
-    pub fn new(x: f64, y: f64) -> Point {
+    pub fn new(x: f32, y: f32) -> Point {
         Point { x, y }
     }
 
 
     #[wasm_bindgen]
-    pub fn set_x(&mut self, x: f64) {
+    pub fn set_x(&mut self, x: f32) {
         self.x = x;
     }
 
     #[wasm_bindgen]
-    pub fn set_y(&mut self, y: f64) {
+    pub fn set_y(&mut self, y: f32) {
         self.y = y;
     }
 
@@ -37,8 +37,8 @@ impl Point {
     #[wasm_bindgen]
     pub fn normalize(
         &self,
-        width: f64,
-        height: f64,
+        width: f32,
+        height: f32,
     ) -> Point {
         let x = self.x / width;
         let y = self.y / height;
@@ -63,8 +63,8 @@ impl Point {
 #[derive(Clone)]
 pub struct DataPoint {
     pub point: Point,
-    pub scale_x: f64,
-    pub scale_y: f64,
+    pub scale_x: u32,
+    pub scale_y: f32,
     id: String,
 }
 
@@ -72,8 +72,8 @@ pub struct DataPoint {
 impl DataPoint {
     #[wasm_bindgen(constructor)]
     pub fn new(
-        scale_x: f64,
-        scale_y: f64,
+        scale_x: u32,
+        scale_y: f32,
     ) -> DataPoint {
         // -- Generate a new id
         let id = uuid::Uuid::new_v4().to_string();
@@ -90,7 +90,6 @@ impl DataPoint {
         self.id.clone()
     }
 }
-    
 
 
 /*
@@ -213,18 +212,17 @@ impl Graph {
         &self,
         line: &Line
     ) {
-        // -- Append the SVG to the canvas
-        self.canvas.append_child(&line.calculate_points(self)).unwrap();
+        line.render_line(self);
     }
 
     #[wasm_bindgen]
-    pub fn get_width(&self) -> f64 {
-        self.canvas.width() as f64
+    pub fn get_width(&self) -> f32 {
+        self.canvas.width() as f32
     }
 
     #[wasm_bindgen]
-    pub fn get_height(&self) -> f64 {
-        self.canvas.height() as f64
+    pub fn get_height(&self) -> f32 {
+        self.canvas.height() as f32
     }
 
     // -- This is used to re-calculate the canvas size
@@ -316,14 +314,17 @@ impl ArrowStyle {
 */
 #[wasm_bindgen]
 pub struct Line {
+    id: String,
     line: web_sys::SvgPathElement,
     points: Vec<DataPoint>,
 
     color: String,
     width: f64,
 
+    label: Label,
     dash_style: DashStyle,
     arrow_style: ArrowStyle,
+    columns: u32,
 }
 
 #[wasm_bindgen]
@@ -332,10 +333,12 @@ impl Line {
     pub fn new(
         color: String,
         width: f64,
+        lable: Option<Label>,
         dash_style: Option<DashStyle>,
         arrow_style: Option<ArrowStyle>,
     ) -> Line {
         Line {
+            id: uuid::Uuid::new_v4().to_string(),
             line: web_sys::window()
                 .unwrap()
                 .document()
@@ -346,7 +349,13 @@ impl Line {
                 .unwrap(),
             color,
             width,
+            columns: 0,
             points: Vec::new(),
+            label: lable.unwrap_or(
+                Label::defualt_graph_label(
+                    "".to_string(), 
+                    Option::None
+                )),
             dash_style: dash_style.unwrap_or(DashStyle::default()),
             arrow_style: arrow_style.unwrap_or(ArrowStyle::default()),
         }
@@ -357,6 +366,7 @@ impl Line {
     #[wasm_bindgen]
     pub fn default() -> Line {
         Line {
+            id: uuid::Uuid::new_v4().to_string(),
             line: web_sys::window()
                 .unwrap()
                 .document()
@@ -367,7 +377,12 @@ impl Line {
                 .unwrap(),
             color: String::from("black"),
             width: 1.0,
+            columns: 0,
             points: Vec::new(),
+            label: Label::defualt_graph_label(
+                "".to_string(), 
+                Option::None
+            ),
             dash_style: DashStyle::default(),
             arrow_style: ArrowStyle::default(),
         }
@@ -376,7 +391,7 @@ impl Line {
 
 
     #[wasm_bindgen]
-    pub fn add_point(
+    pub fn set_point(
         &mut self,
         data: &mut DataPoint,
     ) {
@@ -392,40 +407,51 @@ impl Line {
 
 
     #[wasm_bindgen]
-    pub fn calculate_points(&self, graph: &Graph) -> SvgPathElement {
+    pub fn total_points(&self) -> u32 {
+        self.points.len() as u32
+    }
+
+
+    #[wasm_bindgen]
+    pub fn set_columns(&mut self, columns: u32) {
+        self.columns = columns;
+    }
+
+
+
+    #[wasm_bindgen]
+    pub fn render_line(&self, graph: &Graph){
         // -- Sort the points based on the x value
         let points = &mut self.points.clone();
         points.sort_by(|a, b| a.point.x.partial_cmp(&b.point.x).unwrap());
 
-        // -- Create the SVG string
-        let mut svg_string = String::from("M ");
+        // -- Create the Path2D object
+        let mut path = web_sys::Path2d::new().unwrap();
+        let mut i = 0;
+
+        // -- Check if theres any columns
+        if self.columns < 1 { return; }
 
         let width = graph.get_width(); 
         let height = graph.get_height();
+        let column_width = width / self.columns as f32;
 
         for point in points {
             // -- Set the point Y 
             point.point.set_y(point.scale_y);
-
+            point.point.set_x(column_width * i as f32);
             
-            // -- Normalize the point for the Canvas size
-            let point = point.point.normalize(width, height);
-            svg_string.push_str(&format!("{} {} ", point.x, point.y));
+            path.line_to(
+                point.point.x.into(),
+                point.point.y.into()
+            );
+            i += 1;
         }
 
-        // -- Set the SVG string
-        self.line.set_attribute("d", &svg_string).unwrap();
-        let line = self.line.clone();
-
-        let line = self.arrow_style.apply(line);
-        let line = self.dash_style.apply(line);
-
-        // -- Apply the color and width
-        line.set_attribute("stroke", &self.color).unwrap();
-        line.set_attribute("stroke-width", &self.width.to_string()).unwrap();
-
-        // -- Return the line
-        line
+        let ctx = graph.get_ctx();
+        ctx.set_stroke_style(&JsValue::from_str(&self.color));
+        ctx.set_line_width(self.width);
+        ctx.stroke_with_path(&path);
     }
 }
 
@@ -471,9 +497,9 @@ impl Label {
 
 
     #[wasm_bindgen]
-    pub fn graph_label(
+    pub fn defualt_graph_label(
         text: String,
-        point: Point,
+        point: Option<Point>,
     ) -> Label {
         Label {
             text: web_sys::window()
@@ -484,7 +510,7 @@ impl Label {
                 .unwrap()
                 .dyn_into::<web_sys::SvgTextElement>()
                 .unwrap(),
-            point,
+            point: point.unwrap_or(Point::new(0.0, 0.0)),
         }
     }
 }
