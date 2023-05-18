@@ -1,6 +1,6 @@
 use wasm_bindgen::prelude::*;
 use web_sys::CanvasRenderingContext2d;
-use crate::data_types::{Point, Padding};
+use crate::{data_types::{Point, Padding}, log};
 
 /*
     Label
@@ -13,7 +13,7 @@ use crate::data_types::{Point, Padding};
     TODO: Finish this off, right now this is just a placeholder
 */
 #[wasm_bindgen]
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct Label {
     text: String,
     point: Point,
@@ -59,13 +59,48 @@ impl Label {
             color: "#2b2b2b".to_string(),
             font_size: 15.0,
         }
-    }
+    }   
 
 
 
     #[wasm_bindgen]
+    pub fn default_scale_label() -> Label {
+        Label {
+            text : "".to_string(),
+            point: Point::new(0.0, 0.0),
+            padding: Padding::default(),
+            font: "Arial".to_string(),
+            color: "#2b2b2b".to_string(),
+            font_size: 15.0,
+        }
+    }
+
+
+    #[wasm_bindgen]
+    pub fn scale_label(
+        font: Option<String>,
+        color: Option<String>,
+        font_size: Option<f64>,
+        padding: Option<Padding>,
+    ) -> Label {
+        Label {
+            text: "".to_string(),
+            point: Point::new(0.0, 0.0),
+            padding: padding.unwrap_or(Padding::default()),
+            font: font.unwrap_or("Arial".to_string()),
+            color: color.unwrap_or("#2b2b2b".to_string()),
+            font_size: font_size.unwrap_or(15.0),
+        }
+    }
+
+    #[wasm_bindgen]
     pub fn set_text(&mut self, text: String) {
         self.text = text;
+    }
+
+    #[wasm_bindgen]
+    pub fn set_padding(&mut self, padding: Padding) {
+        self.padding = padding;
     }
 }
 
@@ -107,5 +142,9 @@ impl Label {
             width + self.padding.left + self.padding.right,
             height + self.padding.top + self.padding.bottom,
         )
+    }
+
+    pub fn set(&mut self, text: String) {
+        self.text = text;
     }
 }

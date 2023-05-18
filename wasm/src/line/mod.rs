@@ -8,13 +8,18 @@ use crate::{
 };
 
 mod scaling;
-use scaling::autoscale_graph;
+use scaling::calculate_tick_range;
 
 mod axis;
 use axis::{
     XYAxis,
     AxisType
 };
+
+
+#[wasm_bindgen]
+pub enum ScaleSide { Left, Right }
+
 
 #[wasm_bindgen]
 pub struct Grid {
@@ -51,7 +56,9 @@ pub struct LineGraph {
     lines: HashMap<Uuid, Line>,
     graph: Graph,
     grid: Grid,
+
     labels: HashMap<u32, Label>,
+    scale: Label,
 
     x_axis: XYAxis,
     y_axis: XYAxis,
@@ -63,6 +70,7 @@ impl LineGraph {
     pub fn new(
         parent: web_sys::HtmlElement,
         grid: Option<Grid>,
+        scale: Option<Label>,
         x_axis: Option<XYAxis>,
         y_axis: Option<XYAxis>,
     ) -> LineGraph {
@@ -71,6 +79,10 @@ impl LineGraph {
             lines: HashMap::new(),
             labels: HashMap::new(),
             graph: Graph::new(parent),
+            scale: match scale {
+                Some(scale) => scale,
+                None => Label::default_scale_label(),
+            },
 
             x_axis: match x_axis {
                 Some(axis) => axis,
@@ -153,34 +165,36 @@ impl LineGraph {
     pub fn draw(&mut self) {
         // -- Get the number of columns
         let columns = self.get_columns();
+        let ticks: u32 = 10;
         self.graph.padding = Padding::default();
-
-        // -- Recalculate the graph
         self.graph.recalculate();
 
-        // -- Calculate the Offsets for the
-        //    Labels, Header, etc
-        let bottom_offset = self.calculate_label_offset();
-        self.graph.padding.top += self.y_axis.extend_top + 25.0;
-        self.graph.padding.bottom += self.y_axis.extend_bottom;
 
+        // -- Calculate the scale
+        let (max_data, min_data) = self.get_min_max_y();
+        let tick = calculate_tick_range((min_data, max_data), ticks);
+        let scales: Vec<f64> = (0..10).map(|x| x as f64 * tick).collect();
+
+        // -- Calculate the Offsets for the Labels, Header, etc
+        let bottom_offset = self.calculate_label_offset();
+        let left_offset = self.calculate_scale_label_offset(&scales);
+        log(&format!("Bottom Offset: {}", bottom_offset));
+        log(&format!("Left Offset: {}", left_offset));
+
+        // -- Set the padding
+        self.graph.padding.top += self.y_axis.extend_top + 25.0; // -- This 25 just adds space on top, its temp
+        self.graph.padding.bottom += self.y_axis.extend_bottom;
         self.graph.padding.left += self.x_axis.extend_top;
         self.graph.padding.right += self.x_axis.extend_bottom;
         
         // -- Render the labels
         self.render_labels(columns, bottom_offset);
+        self.render_scales(scales, left_offset, ScaleSide::Left);
         let graph = &self.graph.clone();
-
-        // -- Draw the lines
-        let (
-            max_data,
-            min_data
-        ) = self.get_min_max_y();
 
         // -- Draw the axis lines
         self.x_axis.draw_line(&graph, AxisType::X, &self.grid, columns - 1);
-        self.y_axis.draw_line(&graph, AxisType::Y, &self.grid, 10);
-
+        self.y_axis.draw_line(&graph, AxisType::Y, &self.grid, ticks - 1);
         
         // -- Draw the lines
         self.draw_lines(columns, max_data, min_data);
@@ -276,6 +290,41 @@ impl LineGraph {
     }
 
 
+    pub fn calculate_scale_label_offset(
+        &mut self,
+        rows: &Vec<f64>,
+    ) -> f64 {
+        let (mut label_max_height, mut label_max_width) = (0.0, 0.0);
+        let context = self.graph.get_ctx(); 
+        let mut left_padding = 0.0;
+
+        // -- Get the max width and height
+        for row in rows {
+            // -- Clone the label
+            let mut scale = self.scale.clone();
+            scale.set(row.to_string());
+            let (width, height) = scale.get_padded_size(&context);
+
+            if width > label_max_width { label_max_width = width }
+            if height > label_max_height { label_max_height = height }
+
+            // -- Check for the higest label bottom padding
+            let padding = scale.padding.left;
+            if padding > left_padding { left_padding = padding }
+        }
+
+        // -- Set the label offset
+        self.graph.padding.set_padding_if_larger(
+            Some(label_max_height), 
+            Some(label_max_width),
+            Some(label_max_width), 
+            None,
+        );
+
+        // -- Return the label offset
+        left_padding
+    }
+
 
     pub fn render_labels(
         &mut self, 
@@ -322,4 +371,48 @@ impl LineGraph {
             i += 1;
         }
     }
+
+
+    pub fn render_scales(
+        &mut self, 
+        rows: Vec<f64>,
+        left_offset: f64,
+        side: ScaleSide
+    ) {
+        // -- Grab the Graph context
+        let context = self.graph.get_ctx();
+
+        // -- Get the size of the canvas
+        let (width, _height) = self.graph.get_size();
+        let (_offset_x, offset_y) = self.graph.get_offset();
+        let (_offset_width, offset_height) = self.graph.get_offset_size();
+
+        // -- Render the labels
+        let row_height = offset_height / (rows.len() - 1) as f64;
+        let mut i = 0;
+
+        for row in rows {
+            // -- Calculate the X position
+            let mut scale = self.scale.clone();
+            scale.set(row.to_string());
+
+            let y_pos = row_height * i as f64;
+            let (text_width, text_height) = scale.get_size(&context);
+
+            // -- Set the text into the center
+            let y_pos = y_pos + (text_height / 2.0) + offset_y;
+
+            // -- Determine the x position
+            let x_pos = match side {
+                ScaleSide::Left => left_offset,
+                ScaleSide::Right => width - left_offset - text_width,
+            };
+            
+            // -- Set the X position
+            scale.set_position(Point { x: x_pos, y: y_pos });
+            scale.render(&context);
+            i += 1;
+        }
+    }
+
 }

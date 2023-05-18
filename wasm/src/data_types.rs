@@ -10,7 +10,7 @@ use uuid::{uuid, Uuid};
     such as defining a point on a graph
 */
 #[wasm_bindgen]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct Point {
     pub x: f64,
     pub y: f64,
@@ -101,7 +101,7 @@ pub type DataPointMap = HashMap<Uuid, DataPoint>;
     and other things such as labels
 */
 #[wasm_bindgen]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct Padding {
     pub bottom: f64,
     pub left: f64,

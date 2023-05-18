@@ -1,11 +1,8 @@
-pub fn autoscale_graph(height: f64, max_value: f64, min_value: f64) -> Vec<f64> {
-    let scale_factor = height as f64 / (max_value - min_value);
-    let mut scaled_values = Vec::new();
-
-    for i in 0..height.ceil() as u32 {
-        let scaled_value = max_value - (i as f64) / scale_factor;
-        scaled_values.push(scaled_value);
-    }
-
-    scaled_values
+pub fn calculate_tick_range(range: (f64, f64), tick_count: u32) -> f64 {
+    let (lower_bound, upper_bound) = range;
+    let unrounded_tick_size = (upper_bound - lower_bound) / (tick_count - 1) as f64;
+    let x = (unrounded_tick_size.log10().ceil() - 1.0).floor();
+    let pow10x = 10.0_f64.powf(x);
+    let rounded_tick_range = (unrounded_tick_size / pow10x).ceil() * pow10x;
+    rounded_tick_range
 }

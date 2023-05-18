@@ -20,11 +20,15 @@ async function main() {
     // -- Get the elm with the id 'main'
     const canvas = document.getElementById('main') as HTMLCanvasElement;
     console.info('Canvas element found', canvas);
+    
+    let scale_label = Label.default_scale_label();
+    scale_label.set_padding(new Padding(10, 10, 10, 10));
 
     // -- Create a new graph
     const graph = new LineGraph(
         canvas, 
         Grid.default(),
+        scale_label, 
         XYAxis.default(),
         XYAxis.default(),
     );

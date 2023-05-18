@@ -1,501 +1,89 @@
 {
   "status": "done",
   "assets": {
-    "03c68a6a03fe0e76bb24.wasm": {
-      "name": "03c68a6a03fe0e76bb24.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/03c68a6a03fe0e76bb24.wasm"
-    },
-    "05963328eb7c7354ddac.wasm": {
-      "name": "05963328eb7c7354ddac.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/05963328eb7c7354ddac.wasm"
-    },
-    "06149fbac768a4288d28.wasm": {
-      "name": "06149fbac768a4288d28.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/06149fbac768a4288d28.wasm"
-    },
-    "074a83026b626616032d.wasm": {
-      "name": "074a83026b626616032d.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/074a83026b626616032d.wasm"
-    },
-    "0a26aa2a3be1ef92bd01.wasm": {
-      "name": "0a26aa2a3be1ef92bd01.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/0a26aa2a3be1ef92bd01.wasm"
-    },
-    "0c02d9a1405e916a7759.wasm": {
-      "name": "0c02d9a1405e916a7759.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/0c02d9a1405e916a7759.wasm"
-    },
-    "0c7aedcc0a5ee6e667f5.wasm": {
-      "name": "0c7aedcc0a5ee6e667f5.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/0c7aedcc0a5ee6e667f5.wasm"
-    },
-    "0cf9b6e6da4dc3c936f9.wasm": {
-      "name": "0cf9b6e6da4dc3c936f9.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/0cf9b6e6da4dc3c936f9.wasm"
-    },
-    "0f22c2642d177699e95b.wasm": {
-      "name": "0f22c2642d177699e95b.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/0f22c2642d177699e95b.wasm"
-    },
-    "10201e96959f764e88dd.wasm": {
-      "name": "10201e96959f764e88dd.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/10201e96959f764e88dd.wasm"
-    },
-    "1228cd06c6049ba659a0.wasm": {
-      "name": "1228cd06c6049ba659a0.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/1228cd06c6049ba659a0.wasm"
-    },
-    "1253452669f03a583d97.wasm": {
-      "name": "1253452669f03a583d97.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/1253452669f03a583d97.wasm"
-    },
-    "12c8269db3624f7ac9b5.wasm": {
-      "name": "12c8269db3624f7ac9b5.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/12c8269db3624f7ac9b5.wasm"
-    },
-    "14c358af2d7e90d175f8.wasm": {
-      "name": "14c358af2d7e90d175f8.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/14c358af2d7e90d175f8.wasm"
-    },
-    "14d81775947fb1907b14.wasm": {
-      "name": "14d81775947fb1907b14.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/14d81775947fb1907b14.wasm"
-    },
-    "156bc3ab635b8ef44e5c.wasm": {
-      "name": "156bc3ab635b8ef44e5c.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/156bc3ab635b8ef44e5c.wasm"
-    },
-    "1a2bb21cc38a001467f5.wasm": {
-      "name": "1a2bb21cc38a001467f5.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/1a2bb21cc38a001467f5.wasm"
-    },
-    "1bd8aea1b496b158a77f.wasm": {
-      "name": "1bd8aea1b496b158a77f.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/1bd8aea1b496b158a77f.wasm"
-    },
-    "1f6f91500b37b96f62a5.wasm": {
-      "name": "1f6f91500b37b96f62a5.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/1f6f91500b37b96f62a5.wasm"
-    },
-    "2256881331b448c9197b.wasm": {
-      "name": "2256881331b448c9197b.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/2256881331b448c9197b.wasm"
-    },
-    "2718482e0791990639c0.wasm": {
-      "name": "2718482e0791990639c0.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/2718482e0791990639c0.wasm"
-    },
-    "284a3c1ea50519e12476.wasm": {
-      "name": "284a3c1ea50519e12476.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/284a3c1ea50519e12476.wasm"
-    },
-    "29b61cbfd1daec623817.wasm": {
-      "name": "29b61cbfd1daec623817.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/29b61cbfd1daec623817.wasm"
-    },
-    "29dc85884e2d16f74479.wasm": {
-      "name": "29dc85884e2d16f74479.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/29dc85884e2d16f74479.wasm"
-    },
-    "2a8b5e9a0a47d9d8b1f5.wasm": {
-      "name": "2a8b5e9a0a47d9d8b1f5.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/2a8b5e9a0a47d9d8b1f5.wasm"
-    },
-    "2ac6b4e0c20b3545a6de.wasm": {
-      "name": "2ac6b4e0c20b3545a6de.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/2ac6b4e0c20b3545a6de.wasm"
-    },
-    "2e777439f4197f2cca6d.wasm": {
-      "name": "2e777439f4197f2cca6d.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/2e777439f4197f2cca6d.wasm"
-    },
-    "2e8054e741b6188d660d.wasm": {
-      "name": "2e8054e741b6188d660d.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/2e8054e741b6188d660d.wasm"
-    },
-    "312250e314c4bfcba1ac.wasm": {
-      "name": "312250e314c4bfcba1ac.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/312250e314c4bfcba1ac.wasm"
-    },
-    "318acf75211f27c4e9a6.wasm": {
-      "name": "318acf75211f27c4e9a6.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/318acf75211f27c4e9a6.wasm"
-    },
-    "379e4ee4470a2d393298.wasm": {
-      "name": "379e4ee4470a2d393298.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/379e4ee4470a2d393298.wasm"
-    },
-    "37cfc556bca7f2fc72e1.wasm": {
-      "name": "37cfc556bca7f2fc72e1.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/37cfc556bca7f2fc72e1.wasm"
-    },
-    "38efc3f982c7cb408c2c.wasm": {
-      "name": "38efc3f982c7cb408c2c.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/38efc3f982c7cb408c2c.wasm"
-    },
-    "3922e4812123b44fb0be.wasm": {
-      "name": "3922e4812123b44fb0be.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/3922e4812123b44fb0be.wasm"
-    },
-    "3a7dfecf72d1ea15d319.wasm": {
-      "name": "3a7dfecf72d1ea15d319.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/3a7dfecf72d1ea15d319.wasm"
-    },
-    "3b310412bfd9bb0a8d48.wasm": {
-      "name": "3b310412bfd9bb0a8d48.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/3b310412bfd9bb0a8d48.wasm"
-    },
-    "3f28a89b2eb076ba03cf.wasm": {
-      "name": "3f28a89b2eb076ba03cf.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/3f28a89b2eb076ba03cf.wasm"
-    },
-    "47ac104d976b26b6e8d7.wasm": {
-      "name": "47ac104d976b26b6e8d7.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/47ac104d976b26b6e8d7.wasm"
-    },
-    "4b42f2ec55cc7bc53d0c.wasm": {
-      "name": "4b42f2ec55cc7bc53d0c.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/4b42f2ec55cc7bc53d0c.wasm"
-    },
-    "4f608ce4d05249e8880a.wasm": {
-      "name": "4f608ce4d05249e8880a.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/4f608ce4d05249e8880a.wasm"
-    },
-    "55f6ba34515505517286.wasm": {
-      "name": "55f6ba34515505517286.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/55f6ba34515505517286.wasm"
-    },
-    "5b03d093002b9912c64a.wasm": {
-      "name": "5b03d093002b9912c64a.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/5b03d093002b9912c64a.wasm"
-    },
-    "60b205c105d39d2a5d3f.wasm": {
-      "name": "60b205c105d39d2a5d3f.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/60b205c105d39d2a5d3f.wasm"
-    },
-    "60ebfa186828fbce73ae.wasm": {
-      "name": "60ebfa186828fbce73ae.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/60ebfa186828fbce73ae.wasm"
-    },
-    "65f1705a70011cbac3fb.wasm": {
-      "name": "65f1705a70011cbac3fb.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/65f1705a70011cbac3fb.wasm"
-    },
-    "66904a110ef11115a493.wasm": {
-      "name": "66904a110ef11115a493.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/66904a110ef11115a493.wasm"
-    },
-    "676e9bdeb87ccf4b3175.wasm": {
-      "name": "676e9bdeb87ccf4b3175.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/676e9bdeb87ccf4b3175.wasm"
-    },
-    "6929da5ac122ce703fac.wasm": {
-      "name": "6929da5ac122ce703fac.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/6929da5ac122ce703fac.wasm"
-    },
-    "6a0e55ce97d0cdefb697.wasm": {
-      "name": "6a0e55ce97d0cdefb697.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/6a0e55ce97d0cdefb697.wasm"
-    },
-    "6a634ebcf6cb24aba685.wasm": {
-      "name": "6a634ebcf6cb24aba685.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/6a634ebcf6cb24aba685.wasm"
-    },
-    "6ced17b63e2de4f3beaf.wasm": {
-      "name": "6ced17b63e2de4f3beaf.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/6ced17b63e2de4f3beaf.wasm"
-    },
-    "6d6fdcc1bc1fa0ef7e0a.wasm": {
-      "name": "6d6fdcc1bc1fa0ef7e0a.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/6d6fdcc1bc1fa0ef7e0a.wasm"
-    },
-    "6f5b1c4cd5b1c69a400b.wasm": {
-      "name": "6f5b1c4cd5b1c69a400b.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/6f5b1c4cd5b1c69a400b.wasm"
-    },
-    "711dda7b66ac53878385.wasm": {
-      "name": "711dda7b66ac53878385.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/711dda7b66ac53878385.wasm"
-    },
-    "72b56e15c1b0c81ed6e5.wasm": {
-      "name": "72b56e15c1b0c81ed6e5.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/72b56e15c1b0c81ed6e5.wasm"
-    },
-    "72da664f3336c4813271.wasm": {
-      "name": "72da664f3336c4813271.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/72da664f3336c4813271.wasm"
-    },
-    "741f12a109fda0e70920.wasm": {
-      "name": "741f12a109fda0e70920.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/741f12a109fda0e70920.wasm"
-    },
-    "75bb12dba37c0c548df7.wasm": {
-      "name": "75bb12dba37c0c548df7.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/75bb12dba37c0c548df7.wasm"
-    },
-    "78ef5610b7d218e43c40.wasm": {
-      "name": "78ef5610b7d218e43c40.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/78ef5610b7d218e43c40.wasm"
-    },
-    "795b65af7f813b92a66b.wasm": {
-      "name": "795b65af7f813b92a66b.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/795b65af7f813b92a66b.wasm"
-    },
-    "7b47046e0fbe50418f03.wasm": {
-      "name": "7b47046e0fbe50418f03.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/7b47046e0fbe50418f03.wasm"
-    },
-    "7d504d15cfaf3c07f80a.wasm": {
-      "name": "7d504d15cfaf3c07f80a.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/7d504d15cfaf3c07f80a.wasm"
-    },
-    "7d6877a7507704167a30.wasm": {
-      "name": "7d6877a7507704167a30.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/7d6877a7507704167a30.wasm"
-    },
-    "80213a468131d142b7cd.wasm": {
-      "name": "80213a468131d142b7cd.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/80213a468131d142b7cd.wasm"
-    },
-    "80ed6bf41e2ce66f5e3a.wasm": {
-      "name": "80ed6bf41e2ce66f5e3a.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/80ed6bf41e2ce66f5e3a.wasm"
-    },
-    "823319b5bec4fdea3606.wasm": {
-      "name": "823319b5bec4fdea3606.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/823319b5bec4fdea3606.wasm"
-    },
-    "85844f1d952be9f4b03a.wasm": {
-      "name": "85844f1d952be9f4b03a.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/85844f1d952be9f4b03a.wasm"
-    },
-    "875e88671befe65363ef.wasm": {
-      "name": "875e88671befe65363ef.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/875e88671befe65363ef.wasm"
-    },
-    "8e1cf2a74fabfb2242cd.wasm": {
-      "name": "8e1cf2a74fabfb2242cd.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/8e1cf2a74fabfb2242cd.wasm"
-    },
-    "8ec6e0833181f38e5f9a.wasm": {
-      "name": "8ec6e0833181f38e5f9a.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/8ec6e0833181f38e5f9a.wasm"
-    },
-    "92e93d1722330108505e.wasm": {
-      "name": "92e93d1722330108505e.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/92e93d1722330108505e.wasm"
-    },
-    "93afae9107dc4202f606.wasm": {
-      "name": "93afae9107dc4202f606.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/93afae9107dc4202f606.wasm"
-    },
-    "99d157f085739d6a3f37.wasm": {
-      "name": "99d157f085739d6a3f37.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/99d157f085739d6a3f37.wasm"
-    },
-    "9b058c01abb9aac8f95c.wasm": {
-      "name": "9b058c01abb9aac8f95c.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/9b058c01abb9aac8f95c.wasm"
-    },
-    "9dc6b870bf7b0e18c42d.wasm": {
-      "name": "9dc6b870bf7b0e18c42d.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/9dc6b870bf7b0e18c42d.wasm"
-    },
-    "9df8eac66c96d373cc0e.wasm": {
-      "name": "9df8eac66c96d373cc0e.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/9df8eac66c96d373cc0e.wasm"
-    },
-    "9f683a79f21690475ad0.wasm": {
-      "name": "9f683a79f21690475ad0.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/9f683a79f21690475ad0.wasm"
-    },
-    "9ff0f980cfbf13bd5a11.wasm": {
-      "name": "9ff0f980cfbf13bd5a11.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/9ff0f980cfbf13bd5a11.wasm"
-    },
-    "a20b64d496140fac9ad4.wasm": {
-      "name": "a20b64d496140fac9ad4.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/a20b64d496140fac9ad4.wasm"
-    },
-    "a331f090e361bf28e509.wasm": {
-      "name": "a331f090e361bf28e509.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/a331f090e361bf28e509.wasm"
-    },
-    "a45423b6f431d6d4cb79.wasm": {
-      "name": "a45423b6f431d6d4cb79.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/a45423b6f431d6d4cb79.wasm"
-    },
-    "ababca7d7e8241ebb7d8.wasm": {
-      "name": "ababca7d7e8241ebb7d8.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/ababca7d7e8241ebb7d8.wasm"
-    },
-    "adb2839ffcb69cd866c0.wasm": {
-      "name": "adb2839ffcb69cd866c0.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/adb2839ffcb69cd866c0.wasm"
-    },
-    "ae9df93af989a44a25ec.wasm": {
-      "name": "ae9df93af989a44a25ec.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/ae9df93af989a44a25ec.wasm"
-    },
-    "b06971b16b3849929a39.wasm": {
-      "name": "b06971b16b3849929a39.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/b06971b16b3849929a39.wasm"
-    },
-    "b21a008b5713637013db.wasm": {
-      "name": "b21a008b5713637013db.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/b21a008b5713637013db.wasm"
-    },
-    "b372bb04a50273102380.wasm": {
-      "name": "b372bb04a50273102380.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/b372bb04a50273102380.wasm"
-    },
-    "b5177cf6121da04e1f2f.wasm": {
-      "name": "b5177cf6121da04e1f2f.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/b5177cf6121da04e1f2f.wasm"
-    },
-    "b5c1938f6f68b6db03fd.wasm": {
-      "name": "b5c1938f6f68b6db03fd.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/b5c1938f6f68b6db03fd.wasm"
-    },
-    "b89ecbbe2ebefb9d04bb.wasm": {
-      "name": "b89ecbbe2ebefb9d04bb.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/b89ecbbe2ebefb9d04bb.wasm"
-    },
-    "b8bef93c41a642814da1.wasm": {
-      "name": "b8bef93c41a642814da1.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/b8bef93c41a642814da1.wasm"
-    },
-    "bb96fe85f98c4f73d317.wasm": {
-      "name": "bb96fe85f98c4f73d317.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/bb96fe85f98c4f73d317.wasm"
-    },
-    "bfda5474a0f06acf45f4.wasm": {
-      "name": "bfda5474a0f06acf45f4.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/bfda5474a0f06acf45f4.wasm"
-    },
-    "c69f2c156bed646d9c83.wasm": {
-      "name": "c69f2c156bed646d9c83.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/c69f2c156bed646d9c83.wasm"
-    },
-    "c852a821d80bd43b5601.wasm": {
-      "name": "c852a821d80bd43b5601.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/c852a821d80bd43b5601.wasm"
-    },
-    "c855ea36942cb2ec575c.wasm": {
-      "name": "c855ea36942cb2ec575c.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/c855ea36942cb2ec575c.wasm"
-    },
-    "c8b75efae763acef7c01.wasm": {
-      "name": "c8b75efae763acef7c01.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/c8b75efae763acef7c01.wasm"
-    },
-    "c9b8e7ce2681ca3939bf.wasm": {
-      "name": "c9b8e7ce2681ca3939bf.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/c9b8e7ce2681ca3939bf.wasm"
-    },
-    "cdb0c6cec196a46b144c.wasm": {
-      "name": "cdb0c6cec196a46b144c.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/cdb0c6cec196a46b144c.wasm"
-    },
-    "cfd159cd86ae6cf0024a.wasm": {
-      "name": "cfd159cd86ae6cf0024a.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/cfd159cd86ae6cf0024a.wasm"
-    },
-    "d006b3841d2bbd8e7875.wasm": {
-      "name": "d006b3841d2bbd8e7875.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/d006b3841d2bbd8e7875.wasm"
-    },
-    "d1828d17c98c34160e2a.wasm": {
-      "name": "d1828d17c98c34160e2a.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/d1828d17c98c34160e2a.wasm"
-    },
-    "d185c9c998540ae33a09.wasm": {
-      "name": "d185c9c998540ae33a09.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/d185c9c998540ae33a09.wasm"
-    },
-    "d20327c8f5cca957ae40.wasm": {
-      "name": "d20327c8f5cca957ae40.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/d20327c8f5cca957ae40.wasm"
-    },
-    "d91c00b2a6751875f1bc.wasm": {
-      "name": "d91c00b2a6751875f1bc.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/d91c00b2a6751875f1bc.wasm"
-    },
-    "da00f824aa25d9cf941a.wasm": {
-      "name": "da00f824aa25d9cf941a.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/da00f824aa25d9cf941a.wasm"
-    },
-    "de41a367078565669a87.wasm": {
-      "name": "de41a367078565669a87.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/de41a367078565669a87.wasm"
-    },
-    "dea0f19e8e6fe1164eb2.wasm": {
-      "name": "dea0f19e8e6fe1164eb2.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/dea0f19e8e6fe1164eb2.wasm"
-    },
-    "e2c073578c2d5224d43c.wasm": {
-      "name": "e2c073578c2d5224d43c.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/e2c073578c2d5224d43c.wasm"
-    },
-    "e65f82926c447f2c7dca.wasm": {
-      "name": "e65f82926c447f2c7dca.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/e65f82926c447f2c7dca.wasm"
-    },
-    "e666344efa2001c5a32b.wasm": {
-      "name": "e666344efa2001c5a32b.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/e666344efa2001c5a32b.wasm"
-    },
-    "ea21c0a1e9e50ee0e6cd.wasm": {
-      "name": "ea21c0a1e9e50ee0e6cd.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/ea21c0a1e9e50ee0e6cd.wasm"
-    },
-    "ef94222c4974dda55df1.wasm": {
-      "name": "ef94222c4974dda55df1.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/ef94222c4974dda55df1.wasm"
-    },
-    "f088a31f603f4d8697eb.wasm": {
-      "name": "f088a31f603f4d8697eb.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/f088a31f603f4d8697eb.wasm"
-    },
-    "f08b8199ec9bbb661cdb.wasm": {
-      "name": "f08b8199ec9bbb661cdb.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/f08b8199ec9bbb661cdb.wasm"
-    },
-    "f0c48006c3a409c2eed9.wasm": {
-      "name": "f0c48006c3a409c2eed9.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/f0c48006c3a409c2eed9.wasm"
-    },
-    "f154af4e3f3915b514d6.wasm": {
-      "name": "f154af4e3f3915b514d6.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/f154af4e3f3915b514d6.wasm"
-    },
-    "f7d5a4fb51f8ae861427.wasm": {
-      "name": "f7d5a4fb51f8ae861427.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/f7d5a4fb51f8ae861427.wasm"
-    },
-    "f7def2ffef4309809d97.wasm": {
-      "name": "f7def2ffef4309809d97.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/f7def2ffef4309809d97.wasm"
-    },
-    "f91cadd90abad8ae8686.wasm": {
-      "name": "f91cadd90abad8ae8686.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/f91cadd90abad8ae8686.wasm"
-    },
-    "fa41795c54df6ad954e8.wasm": {
-      "name": "fa41795c54df6ad954e8.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/fa41795c54df6ad954e8.wasm"
-    },
-    "fa60c8a1abfce9ac8484.wasm": {
-      "name": "fa60c8a1abfce9ac8484.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/fa60c8a1abfce9ac8484.wasm"
-    },
-    "fc8aa4245fca104e3807.wasm": {
-      "name": "fc8aa4245fca104e3807.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/fc8aa4245fca104e3807.wasm"
-    },
-    "ff605a34ea34e0332951.wasm": {
-      "name": "ff605a34ea34e0332951.wasm",
-      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/ff605a34ea34e0332951.wasm"
+    "0334cfc1f64d8d958b1a.wasm": {
+      "name": "0334cfc1f64d8d958b1a.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/0334cfc1f64d8d958b1a.wasm"
+    },
+    "25139aaa60b59c5ae87e.wasm": {
+      "name": "25139aaa60b59c5ae87e.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/25139aaa60b59c5ae87e.wasm"
+    },
+    "2aa7059ce474f518e46b.wasm": {
+      "name": "2aa7059ce474f518e46b.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/2aa7059ce474f518e46b.wasm"
+    },
+    "2c2721b484e516b555c0.wasm": {
+      "name": "2c2721b484e516b555c0.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/2c2721b484e516b555c0.wasm"
+    },
+    "34dc9eefba03747bfb8a.wasm": {
+      "name": "34dc9eefba03747bfb8a.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/34dc9eefba03747bfb8a.wasm"
+    },
+    "375d7b4fedb6d18ac29c.wasm": {
+      "name": "375d7b4fedb6d18ac29c.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/375d7b4fedb6d18ac29c.wasm"
+    },
+    "3859234c46995c148946.wasm": {
+      "name": "3859234c46995c148946.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/3859234c46995c148946.wasm"
+    },
+    "5b7ebce1c87b4b911446.wasm": {
+      "name": "5b7ebce1c87b4b911446.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/5b7ebce1c87b4b911446.wasm"
+    },
+    "6be6edbf9a8863ece3fd.wasm": {
+      "name": "6be6edbf9a8863ece3fd.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/6be6edbf9a8863ece3fd.wasm"
+    },
+    "83800e81cb8cf774cba1.wasm": {
+      "name": "83800e81cb8cf774cba1.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/83800e81cb8cf774cba1.wasm"
+    },
+    "84af50fdf2cc2579fb1e.wasm": {
+      "name": "84af50fdf2cc2579fb1e.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/84af50fdf2cc2579fb1e.wasm"
+    },
+    "a47161a3e55508b6d466.wasm": {
+      "name": "a47161a3e55508b6d466.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/a47161a3e55508b6d466.wasm"
+    },
+    "a4c53ade64c2c47ac811.wasm": {
+      "name": "a4c53ade64c2c47ac811.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/a4c53ade64c2c47ac811.wasm"
+    },
+    "a7b9e2293c63d2584581.wasm": {
+      "name": "a7b9e2293c63d2584581.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/a7b9e2293c63d2584581.wasm"
+    },
+    "b7a2180e3fb6baf66713.wasm": {
+      "name": "b7a2180e3fb6baf66713.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/b7a2180e3fb6baf66713.wasm"
+    },
+    "cb02b509f32b8a0d485f.wasm": {
+      "name": "cb02b509f32b8a0d485f.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/cb02b509f32b8a0d485f.wasm"
+    },
+    "cbf7b35d90e6da1cefdd.wasm": {
+      "name": "cbf7b35d90e6da1cefdd.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/cbf7b35d90e6da1cefdd.wasm"
+    },
+    "cc03f5b15d48e5db9f05.wasm": {
+      "name": "cc03f5b15d48e5db9f05.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/cc03f5b15d48e5db9f05.wasm"
+    },
+    "df530459721e5837af61.wasm": {
+      "name": "df530459721e5837af61.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/df530459721e5837af61.wasm"
+    },
+    "e77a4a490f4e7a52a5e1.wasm": {
+      "name": "e77a4a490f4e7a52a5e1.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/e77a4a490f4e7a52a5e1.wasm"
+    },
+    "fcbbedb12c6f78b4198b.wasm": {
+      "name": "fcbbedb12c6f78b4198b.wasm",
+      "path": "/home/grzegorzm/github/RustGraph/www/webpack_bundles/fcbbedb12c6f78b4198b.wasm"
     },
     "mirror-tell-section.js": {
       "name": "mirror-tell-section.js",
@@ -510,7 +98,5 @@
     "core": [
       "mirror-tell-section.js"
     ]
-  },
-  "error": "ModuleBuildError",
-  "message": "Module build failed (from ./node_modules/happypack/loader.js):\nSyntaxError: /home/grzegorzm/github/RustGraph/src/index.ts: Legacy octal literals are not allowed in strict mode. (41:32)\n\n  39 |\n  40 |  // -- Add the lables to the graph\n> 41 |  const pad = new Padding(10, 0, 00, 10);\n     |                                 ^\n  42 |\n  43 |  graph.set_label(\"Val1\", 1, pad);\n  44 |  graph.set_label(\"Val2\", 2, pad);\n    at instantiate (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:653:32)\n    at constructor (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:947:12)\n    at TypeScriptParserMixin.raise (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:3271:19)\n    at TypeScriptParserMixin.recordStrictModeErrors (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:3197:12)\n    at TypeScriptParserMixin.readNumber (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:3073:12)\n    at TypeScriptParserMixin.getTokenFromCode (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:2880:14)\n    at TypeScriptParserMixin.getTokenFromCode (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:9906:11)\n    at TypeScriptParserMixin.nextToken (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:2394:10)\n    at TypeScriptParserMixin.next (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:2305:10)\n    at TypeScriptParserMixin.eat (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:2309:12)\n    at TypeScriptParserMixin.expect (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:3643:10)\n    at TypeScriptParserMixin.parseExprList (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:11973:14)\n    at TypeScriptParserMixin.parseNew (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:11565:25)\n    at TypeScriptParserMixin.parseNewOrNewTarget (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:11560:17)\n    at TypeScriptParserMixin.parseExprAtom (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:11169:21)\n    at TypeScriptParserMixin.parseExprSubscripts (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:10873:23)\n    at TypeScriptParserMixin.parseUpdate (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:10856:21)\n    at TypeScriptParserMixin.parseMaybeUnary (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:10832:23)\n    at TypeScriptParserMixin.parseMaybeUnary (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:9755:18)\n    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:10670:61)\n    at TypeScriptParserMixin.parseExprOps (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:10675:23)\n    at TypeScriptParserMixin.parseMaybeConditional (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:10652:23)\n    at TypeScriptParserMixin.parseMaybeAssign (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:10613:21)\n    at TypeScriptParserMixin.parseMaybeAssign (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:9702:20)\n    at /home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:10583:39\n    at TypeScriptParserMixin.allowInAnd (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12253:16)\n    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:10583:17)\n    at TypeScriptParserMixin.parseVar (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13194:91)\n    at TypeScriptParserMixin.parseVarStatement (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13033:10)\n    at TypeScriptParserMixin.parseVarStatement (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:9365:31)\n    at TypeScriptParserMixin.parseStatementContent (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12630:23)\n    at TypeScriptParserMixin.parseStatementContent (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:9399:18)\n    at TypeScriptParserMixin.parseStatementLike (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12550:17)\n    at TypeScriptParserMixin.parseStatementListItem (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12530:17)\n    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13122:61)\n    at TypeScriptParserMixin.parseBlockBody (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13115:10)\n    at TypeScriptParserMixin.parseBlock (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13103:10)\n    at TypeScriptParserMixin.parseFunctionBody (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:11925:24)\n    at TypeScriptParserMixin.parseFunctionBodyAndFinish (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:11911:10)\n    at TypeScriptParserMixin.parseFunctionBodyAndFinish (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:9142:18)\n    at /home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13258:12\n    at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12235:14)\n    at TypeScriptParserMixin.parseFunction (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13257:10)\n    at TypeScriptParserMixin.parseFunctionStatement (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12917:17)\n    at TypeScriptParserMixin.parseStatementContent (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12679:25)\n    at TypeScriptParserMixin.parseStatementContent (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:9399:18)\n    at TypeScriptParserMixin.parseStatementLike (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12550:17)\n    at TypeScriptParserMixin.parseModuleItem (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:12527:17)\n    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13122:36)\n    at TypeScriptParserMixin.parseBlockBody (/home/grzegorzm/github/RustGraph/node_modules/@babel/parser/lib/index.js:13115:10)"
+  }
 }

@@ -86,33 +86,22 @@ impl XYAxis {
         // -- Calculate the start and end points
         let (offset_x, offset_y) = graph.get_offset();
         let (offset_width, offset_height) = graph.get_offset_size();
-        
-        let ex_top = self.extend_top;
-        let ex_bottom = self.extend_bottom;
+        let (ex_top, ex_bottom) = (self.extend_top, self.extend_bottom);
+
+        // -- Calculate the base start and end points
+        let (start_x, start_y, end_x, end_y) = calculate_coordinates(
+            &axis_type, 
+            (offset_x, offset_y), 
+            (offset_width, offset_height), 
+            (ex_top, ex_bottom)
+        );
 
 
-        let (start_x, start_y, end_x, end_y) = match axis_type {
-            AxisType::X => (
-                offset_x - ex_bottom, 
-                offset_height + offset_y, 
 
-                offset_x + offset_width + ex_top, 
-                offset_height + offset_y
-            ),
-            AxisType::Y => (
-                offset_x, 
-                offset_y + offset_height + ex_top, 
-
-                offset_x, 
-                offset_y - ex_bottom
-            ),
-        };
-
-        // -- Draw the grid lines
-        log(&format!("Drawing grid lines: {}", self.grid));
-        log(&format!("Seperations: {}", seperations));
+        // -- Draw the grid lines, Magic Numbers!! My favorite!
         for i in 0..seperations + 1 {
-            ctx.begin_path();
+
+            // -- Calculate the start and end points
             let (x1, y1, x2, y2) = match axis_type {
                 AxisType::X => (
                     offset_x + (i as f64 * (offset_width / seperations as f64)),
@@ -128,22 +117,51 @@ impl XYAxis {
                 ),
             };
 
+            // -- Draw the grid lines
+            ctx.begin_path();
             ctx.move_to(x1, y1);
             ctx.line_to(x2, y2);
-
             ctx.set_line_width(grid.width);
             ctx.set_stroke_style(&JsValue::from_str(&grid.color));
-            
             ctx.stroke();
         }
+
+
 
         // -- Draw the main axis lines
         ctx.begin_path();
         ctx.move_to(start_x, start_y);
         ctx.line_to(end_x, end_y);
-
         ctx.set_line_width(self.width);
         ctx.set_stroke_style(&JsValue::from_str(&self.color));
         ctx.stroke();
+
+        // -- Restore the ctx
+        ctx.restore();
+    }
+}
+
+
+
+fn calculate_coordinates(
+    axis_type: &AxisType, 
+    offset: (f64, f64),
+    offset_size: (f64, f64),
+    extends: (f64, f64),
+) -> (f64, f64, f64, f64) {
+    match axis_type {
+        AxisType::X => (
+            offset.0 - extends.0, 
+            offset.1 + offset_size.1, 
+            offset.0 + offset_size.0 + extends.1, 
+            offset.1 + offset_size.1
+        ),
+
+        AxisType::Y => (
+            offset.0, 
+            offset.1 + offset_size.1 + extends.1, 
+            offset.0, 
+            offset.1 - extends.0
+        ),
     }
 }
