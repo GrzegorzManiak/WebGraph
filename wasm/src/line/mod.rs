@@ -100,7 +100,8 @@ impl LineGraph {
             },
         }
     }
-
+    
+    
 
     #[wasm_bindgen]
     pub fn set_label(
@@ -166,6 +167,7 @@ impl LineGraph {
         // -- Get the number of columns
         let columns = self.get_columns();
         let ticks: u32 = 10;
+        let scale_side = ScaleSide::Left;
         self.graph.padding = Padding::default();
         self.graph.recalculate();
 
@@ -177,9 +179,7 @@ impl LineGraph {
 
         // -- Calculate the Offsets for the Labels, Header, etc
         let bottom_offset = self.calculate_label_offset();
-        let left_offset = self.calculate_scale_label_offset(&scales);
-        log(&format!("Bottom Offset: {}", bottom_offset));
-        log(&format!("Left Offset: {}", left_offset));
+        let label_max_width = self.calculate_scale_label_offset(&scales, &scale_side);
 
         // -- Set the padding
         self.graph.padding.top += self.y_axis.extend_top + 25.0; // -- This 25 just adds space on top, its temp
@@ -189,7 +189,7 @@ impl LineGraph {
         
         // -- Render the labels
         self.render_labels(columns, bottom_offset);
-        self.render_scales(scales, left_offset, ScaleSide::Left);
+        self.render_scales(scales, label_max_width, &scale_side);
         let graph = &self.graph.clone();
 
         // -- Draw the axis lines
@@ -199,6 +199,7 @@ impl LineGraph {
         // -- Draw the lines
         self.draw_lines(columns, max_data, min_data);
     }
+
 
 
     #[wasm_bindgen]
@@ -235,6 +236,7 @@ impl LineGraph {
     }
 
 
+
     pub fn get_min_max_y(&self) -> (f64, f64) {
         let mut largest_y = 0.0;
         let mut smallest_y = 0.0;
@@ -247,6 +249,7 @@ impl LineGraph {
 
         (largest_y, smallest_y)
     }
+
 
 
     fn sort_labels(&self, reverse: bool) -> Vec<Label> {
@@ -290,9 +293,11 @@ impl LineGraph {
     }
 
 
+
     pub fn calculate_scale_label_offset(
         &mut self,
         rows: &Vec<f64>,
+        side: &ScaleSide,
     ) -> f64 {
         let (mut label_max_height, mut label_max_width) = (0.0, 0.0);
         let context = self.graph.get_ctx(); 
@@ -314,16 +319,29 @@ impl LineGraph {
         }
 
         // -- Set the label offset
-        self.graph.padding.set_padding_if_larger(
-            Some(label_max_height), 
-            Some(label_max_width),
-            Some(label_max_width), 
-            None,
-        );
+        match side {
+            ScaleSide::Left => {
+                self.graph.padding.set_padding_if_larger(
+                    Some(label_max_height), 
+                    Some(label_max_width),
+                    None,
+                    None,
+                );
+            },
+            ScaleSide::Right => {
+                self.graph.padding.set_padding_if_larger(
+                    Some(label_max_height), 
+                    None,
+                    Some(label_max_width), 
+                    None,
+                );
+            },
+        }
 
-        // -- Return the label offset
-        left_padding
+        // -- Return the label max width
+        label_max_width
     }
+
 
 
     pub fn render_labels(
@@ -373,11 +391,12 @@ impl LineGraph {
     }
 
 
+
     pub fn render_scales(
         &mut self, 
         rows: Vec<f64>,
-        left_offset: f64,
-        side: ScaleSide
+        label_max_width: f64,
+        side: &ScaleSide
     ) {
         // -- Grab the Graph context
         let context = self.graph.get_ctx();
@@ -404,8 +423,10 @@ impl LineGraph {
 
             // -- Determine the x position
             let x_pos = match side {
-                ScaleSide::Left => left_offset,
-                ScaleSide::Right => width - left_offset - text_width,
+
+                // -- Text alligned to the right of the left side
+                ScaleSide::Left => label_max_width - text_width - scale.padding.right,
+                ScaleSide::Right => width + scale.padding.left - label_max_width,
             };
             
             // -- Set the X position
